@@ -1,0 +1,32 @@
+[
+  {
+    "title": "[Supply-Chain] Outdated dependencies (commons-io 2.4, commons-lang3 3.4)",
+    "bodyFile": "01-outdated-dependencies.md",
+    "labels": ["dependency", "outdated", "demo"]
+  },
+  {
+    "title": "[Supply-Chain] Known CVE / vulnerable dependencies (Log4Shell, jackson-databind, guava)",
+    "bodyFile": "02-vulnerable-cve-dependencies.md",
+    "labels": ["dependency", "security", "cve", "demo"]
+  },
+  {
+    "title": "[Supply-Chain] License-policy violation (GPL-2.0 mysql-connector-java)",
+    "bodyFile": "03-unlicensed-license-violation.md",
+    "labels": ["dependency", "license", "compliance", "demo"]
+  },
+  {
+    "title": "[Supply-Chain] Typosquatted dependency (com.fastxml.jackson.core)",
+    "bodyFile": "04-typosquatted-dependency.md",
+    "labels": ["dependency", "security", "supply-chain", "typosquatting", "demo"]
+  },
+  {
+    "title": "[Supply-Chain] Untrusted source repository (plain HTTP mirror)",
+    "bodyFile": "05-untrusted-source.md",
+    "labels": ["dependency", "security", "supply-chain", "demo"]
+  },
+  {
+    "title": "[Quality] Test coverage below 80% (JaCoCo gate)",
+    "bodyFile": "06-test-coverage-below-80.md",
+    "labels": ["quality", "coverage", "ci", "demo"]
+  }
+]

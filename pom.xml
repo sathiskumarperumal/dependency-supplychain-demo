@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.demo.supplychain</groupId>
+    <artifactId>vulnerable-invoice-service</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Vulnerable Invoice Service (Demo)</name>
+    <description>
+        Deliberately-insecure Java/Maven sample used to demo the
+        Dependency &amp; Supply-Chain Hygiene plugin. Every dependency block
+        below is tagged with the detection category it is meant to trigger.
+        DO NOT use any of these versions in real software.
+    </description>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jacoco.version>0.8.12</jacoco.version>
+    </properties>
+
+    <!-- ==========================================================
+         ISSUE #5 — UNTRUSTED SOURCE
+         A non-Maven-Central repository served over plain HTTP from an
+         unverified host. Supply-chain audit must flag this.
+         ========================================================== -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>internal-untrusted-mirror</id>
+            <name>Untrusted HTTP Mirror</name>
+            <url>http://insecure-mirror.example.net/maven2</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+
+        <!-- ==========================================================
+             ISSUE #2 — KNOWN CVE / VULNERABLE DEPENDENCIES
+             ========================================================== -->
+
+        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.14.1</version>
+        </dependency>
+
+        <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, ...) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+
+        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>24.1.1-jre</version>
+        </dependency>
+
+        <!-- ==========================================================
+             ISSUE #1 — OUTDATED (but not necessarily CVE) DEPENDENCIES
+             Years behind current releases.
+             ========================================================== -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+        <!-- ==========================================================
+             ISSUE #3 — UNLICENSED / LICENSE-POLICY VIOLATION
+             GPL-2.0 connector pulled into a permissive-only project.
+             ========================================================== -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
+
+        <!-- ==========================================================
+             ISSUE #4 — TYPOSQUATTED DEPENDENCY
+             groupId is "com.fastxml" (missing the "er") impersonating the
+             real "com.fasterxml.jackson.core". This coordinate does NOT
+             exist on Central and will fail to resolve — that is the point.
+             Comment it out before running the coverage build (Issue #6).
+             ========================================================== -->
+        <dependency>
+            <groupId>com.fastxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+
+        <!-- Test scope -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+            <!-- ==========================================================
+                 ISSUE #6 — TEST COVERAGE BELOW 80%
+                 JaCoCo enforces a 0.80 line-coverage minimum. The shipped
+                 tests intentionally cover only part of the code, so
+                 `mvn verify` fails the gate.
+                 ========================================================== -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals><goal>prepare-agent</goal></goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals><goal>report</goal></goals>
+                    </execution>
+                    <execution>
+                        <id>check-coverage</id>
+                        <phase>verify</phase>
+                        <goals><goal>check</goal></goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.80</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
