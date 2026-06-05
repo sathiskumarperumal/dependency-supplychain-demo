@@ -1,0 +1,143 @@
+{
+  "project": "vulnerable-invoice-service",
+  "scanned_at": "2026-06-04T09:41:00Z",
+  "dependency_count": 9,
+  "findings": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": true,
+      "cves": [
+        { "cve": "CVE-2021-44228", "cvss_score": 10.0, "severity": "CRITICAL", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.17.1", "description": "Log4Shell: JNDI RCE via log message parameters" },
+        { "cve": "CVE-2021-45046", "cvss_score": 9.0,  "severity": "CRITICAL", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.17.1", "description": "Incomplete fix for Log4Shell; DoS/limited RCE via Thread Context Map" },
+        { "cve": "CVE-2021-45105", "cvss_score": 5.9,  "severity": "MEDIUM",   "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.17.1", "description": "Infinite recursion / DoS in non-default configurations" },
+        { "cve": "CVE-2021-44832", "cvss_score": 6.6,  "severity": "MEDIUM",   "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.17.2", "description": "RCE when attacker controls logging config (lower severity)" }
+      ],
+      "outdated": { "latest_version": "3.0.0-beta3", "safe_upgrade": "2.24.3", "update_type": "major" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": ["src/main/java/com/demo/supplychain/DiscountCalculator.java"]
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": true,
+      "cves": [
+        { "cve": "CVE-2021-44228", "cvss_score": 10.0, "severity": "CRITICAL", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.17.1", "description": "Log4Shell: shares vulnerability surface via API bindings to log4j-core" }
+      ],
+      "outdated": { "latest_version": "3.0.0-beta2", "safe_upgrade": "2.24.3", "update_type": "major" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": ["src/main/java/com/demo/supplychain/DiscountCalculator.java"]
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": true,
+      "cves": [
+        { "cve": "CVE-2019-14379", "cvss_score": 9.8,  "severity": "CRITICAL", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.10.0", "description": "Deserialization gadget chain via SubTypeValidator" },
+        { "cve": "CVE-2019-14540", "cvss_score": 9.8,  "severity": "CRITICAL", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.9.10", "description": "Unsafe deserialization via commons-configuration gadget" },
+        { "cve": "CVE-2020-36518", "cvss_score": 7.5,  "severity": "HIGH",     "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.13.2.1", "description": "Stack overflow / DoS via deeply nested arrays" },
+        { "cve": "CVE-2019-14439", "cvss_score": 7.5,  "severity": "HIGH",     "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.9.9.3", "description": "Polymorphic type handling deserialization gadget" },
+        { "cve": "CVE-2021-20190", "cvss_score": 8.1,  "severity": "HIGH",     "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.9.10.8", "description": "Deserialization of untrusted data" },
+        { "cve": "CVE-2022-42004", "cvss_score": 7.5,  "severity": "HIGH",     "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.13.4", "description": "Deeply nested content DoS" },
+        { "cve": "CVE-2022-42003", "cvss_score": 7.5,  "severity": "HIGH",     "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.13.4", "description": "Deeply nested arrays/maps processing DoS" },
+        { "cve": "CVE-2019-12384", "cvss_score": 5.9,  "severity": "MEDIUM",   "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "2.9.9", "description": "SSRF via H2 via specially crafted connection string" }
+      ],
+      "outdated": { "latest_version": "2.22.0", "safe_upgrade": "2.17.3", "update_type": "minor" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": []
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": true,
+      "cves": [
+        { "cve": "CVE-2020-8908",  "cvss_score": 3.3,  "severity": "LOW",    "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "30.0-jre", "description": "Insecure use of tmp directory in Guava's Files.createTempDir()" },
+        { "cve": "CVE-2018-10237", "cvss_score": 5.9,  "severity": "MEDIUM", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "24.1.1-jre", "description": "Unbounded memory allocation in AtomicDoubleArray/CompoundOrdering" },
+        { "cve": "CVE-2023-2976",  "cvss_score": 5.5,  "severity": "MEDIUM", "cvss_source": "NVD", "cvss_version": "3.1", "fix_version": "32.0.0-jre", "description": "Insecure temp directory creation on Unix systems" }
+      ],
+      "outdated": { "latest_version": "33.6.0-jre", "safe_upgrade": "33.4.0-jre", "update_type": "major" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": []
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": false,
+      "cves": [],
+      "outdated": { "latest_version": "8.0.33", "safe_upgrade": "8.0.33", "update_type": "patch" },
+      "license": { "name": "GPL-2.0", "status": "VIOLATION" },
+      "imported_in": []
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": false,
+      "cves": [],
+      "outdated": { "latest_version": "2.22.0", "safe_upgrade": "2.18.0", "update_type": "minor" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": []
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": false,
+      "cves": [],
+      "outdated": { "latest_version": "3.20.0", "safe_upgrade": "3.17.0", "update_type": "minor" },
+      "license": { "name": "Apache-2.0", "status": "OK" },
+      "imported_in": []
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "scope": "compile",
+      "depth": "direct",
+      "vulnerable": false,
+      "cves": [],
+      "outdated": { "latest_version": "N/A (does not exist)", "safe_upgrade": null, "update_type": null },
+      "license": { "name": "UNKNOWN", "status": "VIOLATION" },
+      "flags": ["TYPOSQUATTED", "UNRESOLVABLE"],
+      "note": "groupId 'com.fastxml.jackson.core' is a typosquatted impersonation of 'com.fasterxml.jackson.core'. Package does not exist on Maven Central. Remove immediately.",
+      "imported_in": []
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter:5.10.2",
+      "scope": "test",
+      "depth": "direct",
+      "vulnerable": false,
+      "cves": [],
+      "outdated": { "latest_version": "6.1.0", "safe_upgrade": "5.13.0", "update_type": "major" },
+      "license": { "name": "EPL-2.0", "status": "OK" },
+      "imported_in": ["src/test/java/com/demo/supplychain/DiscountCalculatorTest.java"]
+    }
+  ],
+  "supply_chain_flags": [
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "severity": "HIGH",
+      "detail": "Plain HTTP repository configured in pom.xml; susceptible to MITM artifact injection. Maven 3.8+ blocks HTTP mirrors by default."
+    },
+    {
+      "type": "TYPOSQUATTED_DEPENDENCY",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "severity": "CRITICAL",
+      "detail": "groupId 'com.fastxml' is a typosquatted variant of 'com.fasterxml'; this package does not resolve from Maven Central and is a supply-chain attack vector."
+    }
+  ],
+  "summary": {
+    "critical": 3,
+    "high": 1,
+    "medium": 1,
+    "low": 0,
+    "outdated": 8,
+    "license_violations": 2,
+    "supply_chain_alerts": 2
+  }
+}
