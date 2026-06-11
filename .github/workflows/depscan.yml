@@ -34,8 +34,12 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "full | gate-only"
+        description: "Pipeline mode"
+        type: choice
         default: "full"
+        options:
+          - full
+          - gate-only
 
 permissions:
   contents: write                 # plugin pushes the fix branch
