@@ -1,0 +1,589 @@
+{
+  "schema_version": "1.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scan_date": "2026-06-11T11:54:00Z",
+  "project": "vulnerable-invoice-service",
+  "group_id": "com.demo.supplychain",
+  "artifact_id": "vulnerable-invoice-service",
+  "version": "1.0.0",
+  "scanner": {
+    "tool": "OWASP Dependency-Check",
+    "version": "11.0.0",
+    "database_updated": "2026-06-11T09:02:00Z"
+  },
+  "supply_chain_findings": [
+    {
+      "type": "TYPOSQUATTED_DEPENDENCY",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "description": "groupId 'com.fastxml' (missing 'er') impersonates com.fasterxml.jackson.core",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "INSECURE_REPOSITORY",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "description": "Maven repository served over plain HTTP \u2014 susceptible to MITM/dependency confusion",
+      "severity": "HIGH"
+    },
+    {
+      "type": "LICENSE_VIOLATION",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "license": "GPL-2.0",
+      "description": "GPL-2.0 connector in a permissive-only project violates license policy",
+      "severity": "MEDIUM"
+    }
+  ],
+  "summary": {
+    "total_dependencies_scanned": 15,
+    "dependencies_with_vulnerabilities": 9,
+    "total_cves": 80,
+    "critical": 16,
+    "high": 50,
+    "medium": 13,
+    "low": 1
+  },
+  "dependencies": [
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "file": "commons-io-2.4.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2021-29425",
+          "cvss_score": 4.8,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2024-47554",
+          "cvss_score": 4.3,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "2.14.0"
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "file": "commons-lang3-3.4.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2025-48924",
+          "cvss_score": 5.3,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "3.14.0"
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "file": "guava-24.1.1-jre.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2023-2976",
+          "cvss_score": 7.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-8908",
+          "cvss_score": 3.3,
+          "cvss_severity": "LOW",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "32.0.0-jre"
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "file": "jackson-annotations-2.9.0.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2018-1000873",
+          "cvss_score": 6.5,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "2.13.5"
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "file": "jackson-databind-2.9.8.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2019-14379",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-14540",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-14892",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-14893",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-16335",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-16942",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-16943",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-17267",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-17531",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-20330",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-8840",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-9546",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-9547",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-9548",
+          "cvss_score": 9.8,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-10672",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-10673",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-10968",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-10969",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-11111",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-11112",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-11113",
+          "cvss_score": 8.8,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-10650",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-11619",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-11620",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-14060",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-14061",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-14062",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-14195",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-24616",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-24750",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-35490",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-35491",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-35728",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36179",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36180",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36181",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36182",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36183",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36184",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36185",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36186",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36187",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36188",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36189",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-20190",
+          "cvss_score": 8.1,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-12086",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-14439",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-25649",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36518",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-42003",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-42004",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-12384",
+          "cvss_score": 5.9,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-12814",
+          "cvss_score": 5.9,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2023-35116",
+          "cvss_score": 4.7,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "2.13.5"
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "file": "log4j-api-2.14.1.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2026-34479",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34480",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34481",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34477",
+          "cvss_score": 5.9,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2025-68161",
+          "cvss_score": 4.8,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "2.17.2"
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "file": "log4j-core-2.14.1.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2021-44228",
+          "cvss_score": 10.0,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-45046",
+          "cvss_score": 9.0,
+          "cvss_severity": "CRITICAL",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34479",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34480",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34481",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-44832",
+          "cvss_score": 6.6,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-45105",
+          "cvss_score": 5.9,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-34477",
+          "cvss_score": 5.9,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2025-68161",
+          "cvss_score": 4.8,
+          "cvss_severity": "MEDIUM",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "2.17.2"
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "file": "mysql-connector-java-8.0.30.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2023-22102",
+          "cvss_score": 8.3,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "8.0.33"
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "file": "protobuf-java-3.19.4.jar",
+      "vulnerabilities": [
+        {
+          "id": "CVE-2022-3171",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-3509",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-3510",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2024-7254",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2026-0994",
+          "cvss_score": 7.5,
+          "cvss_severity": "HIGH",
+          "cvss_source": "scanner"
+        }
+      ],
+      "fix_version": "3.21.7"
+    }
+  ]
+}
