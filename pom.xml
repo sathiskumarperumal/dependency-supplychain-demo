@@ -72,14 +72,10 @@
             <version>3.17.0</version>
         </dependency>
 
-        <!-- ==========================================================
-             ISSUE #3 — UNLICENSED / LICENSE-POLICY VIOLATION
-             GPL-2.0 connector pulled into a permissive-only project.
-             ========================================================== -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- Test scope -->
