@@ -61,19 +61,15 @@
             <version>24.1.1-jre</version>
         </dependency>
 
-        <!-- ==========================================================
-             ISSUE #1 — OUTDATED (but not necessarily CVE) DEPENDENCIES
-             Years behind current releases.
-             ========================================================== -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.18.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.17.0</version>
         </dependency>
 
         <!-- ==========================================================
