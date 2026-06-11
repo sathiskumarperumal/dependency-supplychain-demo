@@ -1,0 +1,304 @@
+{
+  "project": "vulnerable-invoice-service",
+  "generated_at": "2026-06-11T08:00:00Z",
+  "source_sha": "72fe788e0d0637f538dd1713c30593958b749b9a",
+  "ranked": [
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "criticality_source": "grepped",
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2019-14379",
+      "total_cves": 11,
+      "fix_version": "2.14.0",
+      "outdated": {
+        "latest_version": "2.22.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 11 CVE(s), max CVSS 10.0 (CRITICAL). Top CVE CVE-2019-14379 is CRITICAL (9.8). Fix available: upgrade to 2.14.0. Outdated: current vs 2.22.0 (minor update)."
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "criticality_source": "grepped",
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2021-44228",
+      "total_cves": 5,
+      "fix_version": "2.17.1",
+      "outdated": {
+        "latest_version": "3.0.0-beta2",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 5 CVE(s), max CVSS 10.0 (CRITICAL). Top CVE CVE-2021-44228 is CRITICAL (10.0). Fix available: upgrade to 2.17.1. Outdated: current vs 3.0.0-beta2 (major update)."
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "criticality_source": "grepped",
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2021-44228",
+      "total_cves": 8,
+      "fix_version": "2.17.1",
+      "outdated": {
+        "latest_version": "3.0.0-beta3",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 8 CVE(s), max CVSS 10.0 (CRITICAL). Top CVE CVE-2021-44228 is CRITICAL (10.0). Fix available: upgrade to 2.17.1. Outdated: current vs 3.0.0-beta3 (major update)."
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_severity": 7.6,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "criticality_source": "grepped",
+      "risk_score": 6.3,
+      "band": "HIGH",
+      "top_cve": "CVE-2022-21363",
+      "total_cves": 3,
+      "fix_version": "8.0.31",
+      "outdated": {
+        "latest_version": "8.0.33",
+        "update_type": "patch"
+      },
+      "license": {
+        "name": "GPL-2.0-with-FOSS-exception",
+        "status": "VIOLATION"
+      },
+      "rationale": "Direct compile dep; 3 CVE(s), max CVSS 7.6 (MEDIUM). Fix available: upgrade to 8.0.31. Outdated: current vs 8.0.33 (patch update)."
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_severity": 6.0,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 5.5,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2023-2976",
+      "total_cves": 2,
+      "fix_version": "32.0.0-jre",
+      "outdated": {
+        "latest_version": "33.6.0-jre",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 2 CVE(s), max CVSS 6.0 (MEDIUM). Fix available: upgrade to 32.0.0-jre. Outdated: current vs 33.6.0-jre (major update)."
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 5.2,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2025-48924",
+      "total_cves": 1,
+      "fix_version": "3.20.0",
+      "outdated": {
+        "latest_version": "3.20.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 1 CVE(s), max CVSS 5.3 (MEDIUM). Fix available: upgrade to 3.20.0. Outdated: current vs 3.20.0 (minor update)."
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_severity": 4.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 4.7,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2024-47554",
+      "total_cves": 1,
+      "fix_version": "2.14.0",
+      "outdated": {
+        "latest_version": "2.22.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "Direct compile dep; 1 CVE(s), max CVSS 4.3 (MEDIUM). Fix available: upgrade to 2.14.0. Outdated: current vs 2.22.0 (minor update)."
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "cve_severity": 0.0,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 2.2,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-core:2.9.8",
+      "cve_severity": 0.0,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 2.2,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "cve_severity": 0.0,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 2.2,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "BSD-3-Clause",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:1.3.9",
+      "cve_severity": 0.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 1.9,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.1.3",
+      "cve_severity": 0.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 1.9,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "com.google.j2objc:j2objc-annotations:1.1",
+      "cve_severity": 0.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 1.9,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "org.checkerframework:checker-compat-qual:2.0.0",
+      "cve_severity": 0.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 1.9,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "GPL-2.0-with-classpath-exception",
+        "status": "WARN"
+      },
+      "rationale": "No CVEs detected; low risk."
+    },
+    {
+      "coordinate": "org.codehaus.mojo:animal-sniffer-annotations:1.14",
+      "cve_severity": 0.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "criticality_source": "default",
+      "risk_score": 1.9,
+      "band": "LOW",
+      "top_cve": null,
+      "total_cves": 0,
+      "fix_version": null,
+      "outdated": null,
+      "license": {
+        "name": "MIT",
+        "status": "OK"
+      },
+      "rationale": "No CVEs detected; low risk."
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "high": 4,
+    "medium": 3,
+    "low": 8
+  }
+}
