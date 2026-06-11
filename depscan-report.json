@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.0",
+  "stage": 1,
+  "project": "vulnerable-invoice-service",
+  "artifact_id": "com.demo.supplychain:vulnerable-invoice-service:1.0.0",
+  "source_sha": "f2564ae82337441b0eec1f64ccaeaa845169bca5",
+  "generated": "2026-06-11T00:00:00Z",
+  "scanner": "grype + syft (SBOM-based; OWASP Dependency-Check NVD CVSS fallback)",
+  "pom_xml": "pom.xml",
+
+  "dependencies": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "group_id": "org.apache.logging.log4j",
+      "artifact_id": "log4j-core",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "2.25.4",
+      "fix_version": "2.17.1",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2021-44228",
+          "ghsa": "GHSA-jfh8-c2jp-5v3q",
+          "cvss_v3": 10.0,
+          "severity": "CRITICAL",
+          "description": "Log4Shell — JNDI injection RCE via log messages. Actively exploited.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-45046",
+          "ghsa": "GHSA-7rjr-3q55-vv33",
+          "cvss_v3": 9.0,
+          "severity": "CRITICAL",
+          "description": "Context Lookup pattern JNDI injection RCE — incomplete fix for CVE-2021-44228.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-44832",
+          "ghsa": "GHSA-p6xc-xr62-6r2g",
+          "cvss_v3": 8.6,
+          "severity": "HIGH",
+          "description": "Arbitrary code execution via crafted JDBC Appender datasource URI.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2021-45105",
+          "ghsa": "GHSA-8489-44mv-ggj8",
+          "cvss_v3": 6.6,
+          "severity": "MEDIUM",
+          "description": "Infinite recursion / DoS in self-referential lookups.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-23302",
+          "ghsa": "GHSA-vc5p-v9hr-52mj",
+          "cvss_v3": 8.6,
+          "severity": "HIGH",
+          "description": "Deserialization of untrusted data via JMSSink.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-23305",
+          "ghsa": "GHSA-6hg6-v5c8-fphq",
+          "cvss_v3": 8.6,
+          "severity": "HIGH",
+          "description": "SQL injection via JDBC Appender.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 7
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "group_id": "org.apache.logging.log4j",
+      "artifact_id": "log4j-api",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "2.25.4",
+      "fix_version": "2.17.1",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2021-44228",
+          "ghsa": "GHSA-jfh8-c2jp-5v3q",
+          "cvss_v3": 10.0,
+          "severity": "CRITICAL",
+          "description": "Log4Shell — JNDI injection RCE via log messages.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 1
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "group_id": "com.fasterxml.jackson.core",
+      "artifact_id": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "2.19.0",
+      "fix_version": "2.13.4.2",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2019-14379",
+          "ghsa": "GHSA-p43x-xfjf-5jhr",
+          "cvss_v3": 9.8,
+          "severity": "CRITICAL",
+          "description": "Deserialization RCE via default typing (SubTypeValidator).",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2019-14540",
+          "ghsa": "GHSA-q93h-jc49-78gg",
+          "cvss_v3": 9.8,
+          "severity": "CRITICAL",
+          "description": "Deserialization RCE via c3p0 gadget chain.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-36518",
+          "ghsa": "GHSA-9vvp-fxw6-jcxr",
+          "cvss_v3": 7.5,
+          "severity": "HIGH",
+          "description": "Stack overflow / DoS via deeply nested arrays.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-42003",
+          "ghsa": "GHSA-95cm-88f5-f2c7",
+          "cvss_v3": 7.5,
+          "severity": "HIGH",
+          "description": "DoS via deeply nested objects in UNWRAP_SINGLE_VALUE_ARRAYS.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2022-42004",
+          "ghsa": "GHSA-fqwf-pjwf-7vqv",
+          "cvss_v3": 7.5,
+          "severity": "HIGH",
+          "description": "DoS via deeply nested arrays with arrays.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 53,
+      "note": "Grype detected 53 vulnerabilities total; top 5 by CVSS listed"
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "group_id": "com.google.guava",
+      "artifact_id": "guava",
+      "version": "24.1.1-jre",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "33.4.8-jre",
+      "fix_version": "32.0.0-jre",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2023-2976",
+          "ghsa": "GHSA-7g45-4rm6-3mm3",
+          "cvss_v3": 5.5,
+          "severity": "MEDIUM",
+          "description": "Files and Closer use insecure temporary directory on Unix.",
+          "cvss_source": "scanner"
+        },
+        {
+          "id": "CVE-2020-8908",
+          "ghsa": "GHSA-5mg8-w23w-74h3",
+          "cvss_v3": 4.4,
+          "severity": "MEDIUM",
+          "description": "Temp dir created with unsafe permissions.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 2
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "group_id": "mysql",
+      "artifact_id": "mysql-connector-java",
+      "version": "8.0.30",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "8.0.33",
+      "fix_version": "8.0.33",
+      "license": "GPL-2.0",
+      "license_violation": true,
+      "license_violation_detail": "GPL-2.0 is incompatible with permissive-license project policy",
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2022-21363",
+          "ghsa": "GHSA-m6vm-37g8-gqvh",
+          "cvss_v3": 8.3,
+          "severity": "HIGH",
+          "description": "Difficult to exploit, allows high privileged attacker to compromise MySQL Connectors.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 1
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "group_id": "commons-io",
+      "artifact_id": "commons-io",
+      "version": "2.4",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "2.18.0",
+      "fix_version": "2.14.0",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2024-47554",
+          "ghsa": "GHSA-78wr-2p64-hpwj",
+          "cvss_v3": 7.5,
+          "severity": "HIGH",
+          "description": "Uncontrolled resource consumption in XmlStreamReader.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 2
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "group_id": "org.apache.commons",
+      "artifact_id": "commons-lang3",
+      "version": "3.4",
+      "scope": "compile",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "3.17.0",
+      "fix_version": "3.18.0",
+      "license": "Apache-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [
+        {
+          "id": "CVE-2024-26308",
+          "ghsa": "GHSA-j288-q9x7-2f5v",
+          "cvss_v3": 6.5,
+          "severity": "MEDIUM",
+          "description": "Allocation-of-resources-without-limits in CompoundFormat.",
+          "cvss_source": "scanner"
+        }
+      ],
+      "total_vuln_count": 1
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter:5.10.2",
+      "group_id": "org.junit.jupiter",
+      "artifact_id": "junit-jupiter",
+      "version": "5.10.2",
+      "scope": "test",
+      "direct": true,
+      "outdated": true,
+      "latest_version": "5.13.0",
+      "fix_version": "5.13.0",
+      "license": "EPL-2.0",
+      "license_violation": false,
+      "supply_chain_alert": null,
+      "cves": [],
+      "total_vuln_count": 0
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "group_id": "com.fastxml.jackson.core",
+      "artifact_id": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "outdated": false,
+      "latest_version": null,
+      "fix_version": null,
+      "license": null,
+      "license_violation": false,
+      "supply_chain_alert": "TYPOSQUAT",
+      "supply_chain_detail": "groupId 'com.fastxml.jackson.core' impersonates 'com.fasterxml.jackson.core' (missing 'er'). Coordinate does not exist on Maven Central. Potential malicious artifact substitution.",
+      "resolution_status": "FAILED — coordinate not found on Maven Central (expected)",
+      "cves": [],
+      "total_vuln_count": 0
+    }
+  ],
+
+  "supply_chain_findings": [
+    {
+      "type": "TYPOSQUAT",
+      "severity": "CRITICAL",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "detail": "groupId 'com.fastxml.jackson.core' impersonates the legitimate 'com.fasterxml.jackson.core' (missing 'er' in 'fasterxml'). This coordinate does not exist on Maven Central. Remove immediately — potential malicious artifact injection.",
+      "remediation": "Remove this dependency block from pom.xml entirely."
+    },
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "severity": "HIGH",
+      "repository_id": "internal-untrusted-mirror",
+      "repository_url": "http://insecure-mirror.example.net/maven2",
+      "detail": "Plain-HTTP Maven repository configured in pom.xml. No TLS — vulnerable to MITM artifact injection. Any dependency resolved from this repository may be compromised.",
+      "remediation": "Remove repository block or replace URL with https://."
+    }
+  ],
+
+  "license_violations": [
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "license": "GPL-2.0",
+      "policy": "Project policy allows only permissive licenses (Apache-2.0, MIT, EPL). GPL-2.0 is copyleft and may impose distribution obligations.",
+      "remediation": "Replace with 'com.mysql:mysql-connector-j:8.0.33' (commercial license + FOSS exception) or migrate to MariaDB connector (LGPL)."
+    }
+  ],
+
+  "outdated_summary": {
+    "total_outdated": 8,
+    "dependencies": [
+      {"coordinate": "org.apache.logging.log4j:log4j-core:2.14.1", "latest": "2.25.4"},
+      {"coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",  "latest": "2.25.4"},
+      {"coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8", "latest": "2.19.0"},
+      {"coordinate": "com.google.guava:guava:24.1.1-jre", "latest": "33.4.8-jre"},
+      {"coordinate": "mysql:mysql-connector-java:8.0.30", "latest": "8.0.33"},
+      {"coordinate": "commons-io:commons-io:2.4", "latest": "2.18.0"},
+      {"coordinate": "org.apache.commons:commons-lang3:3.4", "latest": "3.17.0"},
+      {"coordinate": "org.junit.jupiter:junit-jupiter:5.10.2", "latest": "5.13.0"}
+    ]
+  },
+
+  "scan_summary": {
+    "total_dependencies_scanned": 9,
+    "total_cves_found": 66,
+    "critical_cves": 14,
+    "high_cves": 42,
+    "medium_cves": 9,
+    "low_cves": 1,
+    "dependencies_with_cves": 6,
+    "license_violations": 1,
+    "supply_chain_alerts": 2,
+    "outdated_dependencies": 8
+  }
+}

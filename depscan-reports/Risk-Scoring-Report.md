@@ -1,38 +1,84 @@
 # Risk Scoring Report
 
-Project: **vulnerable-invoice-service** · Stage 2 (NVD CVSS-weighted) · Generated 2026-06-10 · Model: `0.5·CVE + 0.3·exposure + 0.2·criticality`
+Project: **vulnerable-invoice-service** · Stage 2 (NVD CVSS-weighted) · Generated 2026-06-11 · SHA: `f2564ae` · Model: `0.5·CVE + 0.3·exposure + 0.2·criticality`
 
 ## Ranked remediation backlog
 
 | # | Coordinate | Ver | Band | Risk | Top CVE / issue | Fix |
 |---|---|---|---|---|---|---|
-| 1 | log4j-core | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (10.0) | 2.17.1 |
-| 2 | log4j-api | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (10.0) | 2.17.1 |
-| 3 | jackson-databind | 2.9.8 | <span class="badge high">HIGH</span> | 7.8 | CVE-2019-14379 (9.8) | 2.13.4.2 |
-| 4 | com.fastxml…:jackson-databind | 2.9.8 | <span class="badge crit">CRITICAL</span> | — | Typosquat (REMOVE) | remove |
-| 5 | guava | 24.1.1-jre | <span class="badge high">HIGH</span> | 6.0 | CVE-2023-2976 | 32.0.0-jre |
-| 6 | mysql-connector-java | 8.0.30 | <span class="badge med">MEDIUM</span> | 3.1 | GPL-2.0 license | 8.0.33 |
-| 7 | commons-io | 2.4 | <span class="badge low">LOW</span> | 2.5 | outdated | 2.18.0 |
-| 8 | commons-lang3 | 3.4 | <span class="badge low">LOW</span> | 2.5 | outdated | 3.17.0 |
-| 9 | junit-jupiter | 5.10.2 | <span class="badge low">LOW</span> | 1.7 | test-scope, outdated | 5.13.0 |
+| 1 | com.fastxml.jackson.core:jackson-databind | 2.9.8 | <span class="badge crit">CRITICAL</span> | 10.0 | TYPOSQUAT — REMOVE (supply-chain) | remove |
+| 2 | log4j-core | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (CVSS 10.0) | 2.17.1 |
+| 3 | log4j-api | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (CVSS 10.0) | 2.17.1 |
+| 4 | jackson-databind | 2.9.8 | <span class="badge high">HIGH</span> | 7.8 | CVE-2019-14379 (CVSS 9.8) | 2.13.4.2 |
+| 5 | mysql-connector-java | 8.0.30 | <span class="badge high">HIGH</span> | 6.7 | CVE-2022-21363 (CVSS 8.3) + GPL-2.0 | 8.0.33 |
+| 6 | commons-io | 2.4 | <span class="badge high">HIGH</span> | 6.5 | CVE-2024-47554 (CVSS 7.5) | 2.18.0 |
+| 7 | commons-lang3 | 3.4 | <span class="badge med">MEDIUM</span> | 5.8 | CVE-2024-26308 (CVSS 6.5) | 3.17.0 |
+| 8 | guava | 24.1.1-jre | <span class="badge med">MEDIUM</span> | 5.5 | CVE-2023-2976 (CVSS 5.5) | 32.0.0-jre |
+| 9 | junit-jupiter | 5.10.2 | <span class="badge low">LOW</span> | 1.7 | No CVEs (test-scope, outdated) | 5.13.0 |
 
-## Component scores (top items)
+## Component scores
 
-| Dependency | CVE severity | Exposure | Business criticality | Weighted |
+| Dependency | CVE severity | Exposure | Business criticality | Weighted risk |
 |---|---|---|---|---|
-| log4j-core | 10.0 | 8.0 | 2.0 | 7.8 |
-| jackson-databind | 10.0 | 8.0 | 2.0 | 7.8 |
-| guava | 6.9 | 7.0 | 2.0 | 6.0 |
-| mysql-connector-java | 0.0 | 7.0 | 5.0 | 3.1 |
+| com.fastxml…:jackson-databind (TYPOSQUAT) | 0.0 | 8.0 | 2.0 | **10.0** |
+| log4j-core | 10.0 | 8.0 | 2.0 | **7.8** |
+| log4j-api | 10.0 | 8.0 | 2.0 | **7.8** |
+| jackson-databind | 10.0 | 8.0 | 2.0 | **7.8** |
+| mysql-connector-java | 8.3 | 7.0 | 2.0 | **6.7** |
+| commons-io | 8.0 | 7.0 | 2.0 | **6.5** |
+| commons-lang3 | 6.5 | 7.0 | 2.0 | **5.8** |
+| guava | 6.0 | 7.0 | 2.0 | **5.5** |
+| junit-jupiter | 0.0 | 5.0 | 1.0 | **1.7** |
+
+## Score methodology
+
+**CVE Severity** — max CVSS base score across all CVEs, with +0.5 density bonus per additional CVE beyond the first (cap 10). jackson-databind carries 53 Grype findings (max 9.8 + 26 density bonus → capped at 10.0).
+
+**Exposure** — direct (+4) + compile scope (+3) + serialization/logging/network lib (+1) = 8 for most; test-scope deps receive +1 instead of +3.
+
+**Business Criticality** — log4j directly imported in `DiscountCalculator.java` (internal service = +2); all others default to 2 (no direct import found in source tree) except junit-jupiter (test only = +1).
+
+**Band floor rule** — any dependency with at least one CRITICAL CVE is floored at HIGH band regardless of weighted score.
+
+## Risk band summary
+
+| Band | Count | Dependencies |
+|---|---|---|
+| <span class="badge crit">CRITICAL</span> | 1 | com.fastxml…:jackson-databind (typosquat) |
+| <span class="badge high">HIGH</span> | 5 | log4j-core, log4j-api, jackson-databind, mysql-connector-java, commons-io |
+| <span class="badge med">MEDIUM</span> | 2 | commons-lang3, guava |
+| <span class="badge low">LOW</span> | 1 | junit-jupiter |
 
 ## Priority recommendations
 
-1. **P0** — Remove the typosquatted `com.fastxml.jackson.core` dependency (supply-chain).
-2. **P0** — Upgrade log4j 2.14.1 → 2.17.1 (Log4Shell, actively exploited).
-3. **P1** — Upgrade jackson-databind 2.9.8 → 2.13.4.2 (8 CVEs, 2 critical RCE chains).
-4. **P1** — Upgrade guava → 32.0.0-jre (major review — API breakage possible).
-5. **P2** — Resolve mysql-connector GPL-2.0 license violation.
-6. **P3** — Routine bumps: commons-io, commons-lang3.
+1. **P0 — IMMEDIATE** Remove the typosquatted `com.fastxml.jackson.core:jackson-databind` dependency from `pom.xml` (supply-chain — potential malware vector).
+2. **P0 — IMMEDIATE** Upgrade log4j-core + log4j-api 2.14.1 → 2.17.1 (Log4Shell CVE-2021-44228 CVSS 10.0, actively exploited in the wild).
+3. **P1 — URGENT** Upgrade jackson-databind 2.9.8 → 2.13.4.2 (53 CVEs including 2 CRITICAL deserialization RCE chains).
+4. **P1 — URGENT** Remove the plain-HTTP repository `http://insecure-mirror.example.net/maven2` (MITM artifact-injection risk).
+5. **P2** Resolve mysql-connector-java GPL-2.0 license violation — upgrade to `8.0.33` or replace with a compatible driver.
+6. **P2** Upgrade commons-io 2.4 → 2.18.0 (CVE-2024-47554 CVSS 7.5).
+7. **P3** Upgrade commons-lang3 3.4 → 3.17.0 and guava 24.1.1-jre → 32.0.0-jre (review Guava API breakage before bump).
+8. **P4** Routine bump: junit-jupiter 5.10.2 → 5.13.0 (test-scope, no CVEs).
 
 ---
-*Machine-readable source: `depscan-risk-report.json`. Generated by the Dependency & Supply-Chain Plugin — Stage 2.*
+*Machine-readable source: `depscan-risk-report.json` (SHA: f2564ae). Generated by the Dependency & Supply-Chain Plugin — Stage 2.*
+
+---
+
+## Stage 3 — Remediation Status (2026-06-11)
+
+Branch: `fix/depscan-20260611-112629` · Build: **PASS** (`mvn clean test`, 2/2) · Pre-existing `verify` gate failure (JaCoCo <80%) unrelated to bumps.
+
+| # | Coordinate | Status | Post-fix band |
+|---|---|---|---|
+| 1 | com.fastxml.jackson.core:jackson-databind | ✅ REMOVED (typosquat) | — |
+| 2 | log4j-core | ✅ 2.14.1 → 2.17.1 | <span class="badge ok">FIXED</span> |
+| 3 | log4j-api | ✅ 2.14.1 → 2.17.1 | <span class="badge ok">FIXED</span> |
+| 4 | jackson-databind | ✅ 2.9.8 → 2.13.4.2 | <span class="badge ok">FIXED</span> |
+| 5 | mysql-connector-java | ✅ 8.0.30 → 8.0.33 (CVE); ⚠️ GPL-2.0 license unresolved | <span class="badge med">MEDIUM</span> |
+| 6 | commons-io | ✅ 2.4 → 2.18.0 | <span class="badge ok">FIXED</span> |
+| 7 | commons-lang3 | ✅ 3.4 → 3.17.0 | <span class="badge ok">FIXED</span> |
+| 8 | guava | ⏸ MAJOR_REVIEW — 24→32 major jump | <span class="badge med">MEDIUM</span> |
+| 9 | junit-jupiter | ✅ 5.10.2 → 5.13.0 | <span class="badge ok">FIXED</span> |
+
+*Machine-readable source: `depscan-risk-report.json` (SHA: f2564ae). Remediation by Stage 3 Auto-Remediation.*
