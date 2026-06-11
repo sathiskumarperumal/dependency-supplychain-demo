@@ -1,0 +1,130 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "229a7ee6fc6c14460fd7f58d429791f38f6e40cc",
+  "scan_timestamp": "2026-06-11T08:49:00Z",
+  "ranked": [
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 10,
+      "exposure": 8.0,
+      "business_criticality": 5.0,
+      "risk_score": 8.4,
+      "band": "CRITICAL",
+      "top_cve": "CVE-2019-14379",
+      "cve_count": 107,
+      "max_cvss": 9.8,
+      "fix_version": "2.18.3",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 107 CVE(s) identified; max CVSS 9.8 (CRITICAL) via CVE-2019-14379. 54 CVEs including 14 CRITICAL deserialization gadget chains. Used as main JSON serializer \u2014 any external JSON input is an attack vector. Fix available: upgrade to 2.18.3."
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_severity": 10,
+      "exposure": 8.0,
+      "business_criticality": 3.0,
+      "risk_score": 8.0,
+      "band": "CRITICAL",
+      "top_cve": "CVE-2021-44228",
+      "cve_count": 15,
+      "max_cvss": 10.0,
+      "fix_version": "2.23.1",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 15 CVE(s) identified; max CVSS 10.0 (CRITICAL) via CVE-2021-44228. Log4Shell (CVE-2021-44228, CVSS 10.0) \u2014 remote code execution via JNDI lookup. Directly imported in DiscountCalculator.java. Fix available: upgrade to 2.23.1."
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_severity": 8.8,
+      "exposure": 7.0,
+      "business_criticality": 5.0,
+      "risk_score": 7.5,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-22102",
+      "cve_count": 2,
+      "max_cvss": 8.3,
+      "fix_version": "8.4.0",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 2 CVE(s) identified; max CVSS 8.3 (HIGH) via CVE-2023-22102. CVE-2023-22102 (CVSS 8.3) \u2014 MitM vulnerability. Database connector handles sensitive invoice/payment data. Fix available: upgrade to 8.4.0."
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_severity": 9.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.3,
+      "band": "HIGH",
+      "top_cve": "GHSA-78wr-2p64-hpwj",
+      "cve_count": 4,
+      "max_cvss": 7.5,
+      "fix_version": "2.18.0",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 4 CVE(s) identified; max CVSS 7.5 (HIGH) via GHSA-78wr-2p64-hpwj. Fix available: upgrade to 2.18.0."
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_severity": 8.0,
+      "exposure": 8.0,
+      "business_criticality": 3.0,
+      "risk_score": 7.0,
+      "band": "HIGH",
+      "top_cve": "CVE-2026-34479",
+      "cve_count": 2,
+      "max_cvss": 7.5,
+      "fix_version": "2.23.1",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 2 CVE(s) identified; max CVSS 7.5 (HIGH) via CVE-2026-34479. Fix available: upgrade to 2.23.1."
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_severity": 8.6,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-2976",
+      "cve_count": 4,
+      "max_cvss": 7.1,
+      "fix_version": "33.4.0-jre",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 4 CVE(s) identified; max CVSS 7.1 (HIGH) via CVE-2023-2976. Fix available: upgrade to 33.4.0-jre."
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "cve_severity": 9.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.4,
+      "band": "HIGH",
+      "top_cve": "CVE-2024-7254",
+      "cve_count": 4,
+      "max_cvss": 7.5,
+      "fix_version": "4.29.3",
+      "rationale": "Transitive compile dependency (scope=compile, depth=1). 4 CVE(s) identified; max CVSS 7.5 (HIGH) via CVE-2024-7254. CVE-2024-7254 (CVSS 8.7) \u2014 recursive data structure causing stack overflow. Transitive via mysql-connector-java. Fix available: upgrade to 4.29.3."
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "cve_severity": 6.5,
+      "exposure": 6.0,
+      "business_criticality": 5.0,
+      "risk_score": 6.0,
+      "band": "HIGH",
+      "top_cve": "CVE-2018-1000873",
+      "cve_count": 1,
+      "max_cvss": 6.5,
+      "fix_version": "2.18.3",
+      "rationale": "Transitive compile dependency (scope=compile, depth=1). 1 CVE(s) identified; max CVSS 6.5 (MEDIUM) via CVE-2018-1000873. Fix available: upgrade to 2.18.3."
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_severity": 7.0,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.0,
+      "band": "HIGH",
+      "top_cve": "GHSA-j288-q9x7-2f5v",
+      "cve_count": 2,
+      "max_cvss": 6.5,
+      "fix_version": "3.17.0",
+      "rationale": "Direct compile dependency (scope=compile, depth=0). 2 CVE(s) identified; max CVSS 6.5 (MEDIUM) via GHSA-j288-q9x7-2f5v. Fix available: upgrade to 3.17.0."
+    }
+  ],
+  "summary": {
+    "critical": 2,
+    "high": 7,
+    "medium": 0,
+    "low": 0
+  }
+}
