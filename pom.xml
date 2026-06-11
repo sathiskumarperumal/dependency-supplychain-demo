@@ -24,22 +24,10 @@
         <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
-    <!-- ==========================================================
-         ISSUE #5 — UNTRUSTED SOURCE
-         A non-Maven-Central repository served over plain HTTP from an
-         unverified host. Supply-chain audit must flag this.
-         ========================================================== -->
     <repositories>
         <repository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-        <repository>
-            <id>internal-untrusted-mirror</id>
-            <name>Untrusted HTTP Mirror</name>
-            <url>http://insecure-mirror.example.net/maven2</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
         </repository>
     </repositories>
 
@@ -98,19 +86,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
-        </dependency>
-
-        <!-- ==========================================================
-             ISSUE #4 — TYPOSQUATTED DEPENDENCY
-             groupId is "com.fastxml" (missing the "er") impersonating the
-             real "com.fasterxml.jackson.core". This coordinate does NOT
-             exist on Central and will fail to resolve — that is the point.
-             Comment it out before running the coverage build (Issue #6).
-             ========================================================== -->
-        <dependency>
-            <groupId>com.fastxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
         </dependency>
 
         <!-- Test scope -->
