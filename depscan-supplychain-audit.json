@@ -1,0 +1,89 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "ea2fe546e2340c3c0e7e6d83de1a8ae5b39ab25e",
+  "audited_at": "2026-06-11T08:20:00Z",
+  "verdict": "BLOCK",
+  "blocking_findings": [
+    {
+      "type": "license_violation",
+      "coordinate": "mysql:mysql-connector-java:8.0.31",
+      "detail": "GPL-2.0-with-FOSS-exception is incompatible with permissive-only project policy. CVE patched (8.0.30→8.0.31) but license replacement deferred to MAJOR_REVIEW issue #14.",
+      "action_required": "Replace with com.mysql:mysql-connector-j (permissive license) — see issue #14"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "grype_high_no_fix",
+      "coordinate": "mysql:mysql-connector-java:8.0.31",
+      "cve": "GHSA-m6vm-37g8-gqvh",
+      "severity": "HIGH",
+      "fix_versions": [],
+      "detail": "HIGH CVE with no fix available — not blocking per policy but requires monitoring"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "cve": "GHSA-3pxv-7cmr-fjr4",
+      "severity": "MEDIUM",
+      "fix_versions": ["2.25.4"],
+      "detail": "Post-Log4Shell medium CVE; fix available in 2.25.4 (minor version bump from 2.17.1)"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "cve": "GHSA-vc5p-v9hr-52mj",
+      "severity": "MEDIUM",
+      "fix_versions": ["2.25.3"],
+      "detail": "Post-Log4Shell medium CVE; fix available in 2.25.3"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "cve": "GHSA-6hg6-v5c8-fphq",
+      "severity": "MEDIUM",
+      "fix_versions": ["2.25.4"],
+      "detail": "Post-Log4Shell medium CVE; fix available in 2.25.4"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve": "GHSA-7g45-4rm6-3mm3",
+      "severity": "MEDIUM",
+      "fix_versions": ["32.0.0-android"],
+      "detail": "MAJOR_REVIEW in progress — issue #13 opened; 24→32 jump requires human validation"
+    },
+    {
+      "type": "grype_low",
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve": "GHSA-5mg8-w23w-74h3",
+      "severity": "LOW",
+      "fix_versions": ["32.0.0-android"],
+      "detail": "MAJOR_REVIEW in progress — issue #13 opened"
+    },
+    {
+      "type": "license_warn",
+      "coordinate": "org.checkerframework:checker-compat-qual:2.0.0",
+      "detail": "GPL-2.0-with-classpath-exception — transitive dependency of guava; classpath exception makes it permissive-compatible in most cases"
+    }
+  ],
+  "clean": {
+    "typosquat": "No typosquatted coordinates detected in SBOM",
+    "untrusted_sources": "Only Maven Central (https) in effective POM — HTTP mirror removed",
+    "critical_cves_with_fix": "Zero CRITICAL CVEs in Grype scan",
+    "high_cves_with_fix": "Zero HIGH CVEs with available fix in Grype scan"
+  },
+  "counts": {
+    "grype_critical": 0,
+    "grype_high": 1,
+    "grype_high_with_fix": 0,
+    "grype_medium": 4,
+    "grype_low": 1,
+    "typosquat": 0,
+    "untrusted_sources": 0,
+    "license_violations": 1,
+    "license_warnings": 2
+  },
+  "sbom_path": "target/sbom.cdx.json",
+  "grype_report_path": "target/grype-report.json",
+  "notes": "BLOCK is due to pre-existing GPL-2.0 license violation on mysql-connector-java. CVE remediation for Log4Shell, jackson-databind, commons-io, commons-lang3, and mysql CVE-2022-21363 are all confirmed cleared by Grype. Typosquat and HTTP-mirror supply-chain issues resolved. Three medium CVEs in log4j-core 2.17.1 are addressable by bumping to 2.25.x (new separate fix recommended)."
+}
