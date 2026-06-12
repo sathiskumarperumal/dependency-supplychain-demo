@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "project": "vulnerable-invoice-service",
+  "group_id": "com.demo.supplychain",
+  "artifact_id": "vulnerable-invoice-service",
+  "version": "1.0.0",
+  "generated_at": "2026-06-12T00:00:00Z",
+  "scanner": "OWASP Dependency-Check 9.x + Maven Versions Plugin + Static POM Analysis",
+  "pom_path": "pom.xml",
+  "supply_chain_alerts": [
+    {
+      "type": "TYPOSQUATTED_DEPENDENCY",
+      "severity": "CRITICAL",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "legitimate_coordinate": "com.fasterxml.jackson.core:jackson-databind",
+      "description": "groupId 'com.fastxml.jackson.core' is a typosquat of the legitimate 'com.fasterxml.jackson.core'. This coordinate does not exist on Maven Central and will fail to resolve. Possible malicious package injection vector.",
+      "recommendation": "Remove this dependency immediately."
+    },
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "severity": "HIGH",
+      "repository_id": "internal-untrusted-mirror",
+      "repository_url": "http://insecure-mirror.example.net/maven2",
+      "description": "Plain-HTTP Maven repository declared in pom.xml. Susceptible to man-in-the-middle artifact injection. No TLS, no checksum enforcement.",
+      "recommendation": "Remove or replace with an HTTPS-only repository. Enforce artifact signing."
+    }
+  ],
+  "dependencies": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "group_id": "org.apache.logging.log4j",
+      "artifact_id": "log4j-core",
+      "version": "2.14.1",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "2.24.3",
+      "fix_version": "2.17.1",
+      "outdated": true,
+      "cves": [
+        {
+          "cve_id": "CVE-2021-44228",
+          "description": "Log4Shell: Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases) JNDI features used in configuration, log messages, and parameters do not protect against attacker-controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.",
+          "cvss_v3_score": 10.0,
+          "cvss_v3_severity": "CRITICAL",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2021-12-10",
+          "fix_version": "2.15.0"
+        },
+        {
+          "cve_id": "CVE-2021-45046",
+          "description": "Apache Log4j2 Thread Context Message Pattern and Context Lookup Pattern can craft malicious input data using a JNDI Lookup pattern resulting in a denial of service (DOS) attack. In Log4j 2.15.0, only the default configuration is protected from the exploit; the attacker can still send a specially crafted string that bypasses the fix.",
+          "cvss_v3_score": 9.0,
+          "cvss_v3_severity": "CRITICAL",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2021-12-14",
+          "fix_version": "2.16.0"
+        },
+        {
+          "cve_id": "CVE-2021-44832",
+          "description": "Apache Log4j2 versions 2.0-beta7 through 2.17.0 (excluding security fix releases 2.3.2 and 2.12.4) are vulnerable to a remote code execution (RCE) attack where an attacker with permission to modify the logging configuration file can construct a malicious configuration using a JDBC Appender with a data source referencing a JNDI URI which can execute remote code.",
+          "cvss_v3_score": 6.6,
+          "cvss_v3_severity": "MEDIUM",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2021-12-28",
+          "fix_version": "2.17.1"
+        },
+        {
+          "cve_id": "CVE-2021-45105",
+          "description": "Apache Log4j2 versions 2.0-alpha1 through 2.16.0 did not protect from uncontrolled recursion from self-referential lookups. This allows an attacker with control over Thread Context Map data to cause a denial of service when a crafted string is interpreted.",
+          "cvss_v3_score": 5.9,
+          "cvss_v3_severity": "MEDIUM",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "cvss_source": "scanner",
+          "published": "2021-12-18",
+          "fix_version": "2.17.0"
+        }
+      ]
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "group_id": "org.apache.logging.log4j",
+      "artifact_id": "log4j-api",
+      "version": "2.14.1",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "2.24.3",
+      "fix_version": "2.17.1",
+      "outdated": true,
+      "cves": [
+        {
+          "cve_id": "CVE-2021-44228",
+          "description": "Log4Shell: Apache Log4j2 JNDI features do not protect against attacker-controlled LDAP and other JNDI related endpoints. The log4j-api artifact shares the vulnerability surface with log4j-core when used together.",
+          "cvss_v3_score": 10.0,
+          "cvss_v3_severity": "CRITICAL",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2021-12-10",
+          "fix_version": "2.17.1"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "group_id": "com.fasterxml.jackson.core",
+      "artifact_id": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "2.18.3",
+      "fix_version": "2.13.4.2",
+      "outdated": true,
+      "cves": [
+        {
+          "cve_id": "CVE-2019-14379",
+          "description": "SubTypeValidator.java in FasterXML jackson-databind before 2.9.9.3 mishandles default typing when ehcache is used (aka 'a gadget chain related to ehcache'), leading to arbitrary code execution.",
+          "cvss_v3_score": 9.8,
+          "cvss_v3_severity": "CRITICAL",
+          "cvss_v3_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2019-07-29",
+          "fix_version": "2.9.9.3"
+        },
+        {
+          "cve_id": "CVE-2019-14540",
+          "description": "A Polymorphic Typing issue was discovered in FasterXML jackson-databind before 2.9.10. It is related to com.zaxxer.hikari.HikariConfig.",
+          "cvss_v3_score": 9.8,
+          "cvss_v3_severity": "CRITICAL",
+          "cvss_v3_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "cvss_source": "scanner",
+          "published": "2019-09-15",
+          "fix_version": "2.9.10"
+        },
+        {
+          "cve_id": "CVE-2020-36518",
+          "description": "jackson-databind 2.x before 2.13.2.1 allows attackers to cause a denial of service (2 GB transient heap usage per read) in uncommon situations involving JsonNode JDK serialization.",
+          "cvss_v3_score": 7.5,
+          "cvss_v3_severity": "HIGH",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "cvss_source": "scanner",
+          "published": "2022-03-11",
+          "fix_version": "2.13.2.1"
+        },
+        {
+          "cve_id": "CVE-2022-42003",
+          "description": "In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in primitive value deserializers to avoid deep wrapper array nesting, when the UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled.",
+          "cvss_v3_score": 7.5,
+          "cvss_v3_severity": "HIGH",
+          "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "cvss_source": "scanner",
+          "published": "2022-10-02",
+          "fix_version": "2.13.4.2"
+        },
+        {
+          "cve_id": "CVE-2019-12384",
+          "description": "FasterXML jackson-databind 2.x before 2.9.9.1 might allow attackers to have a variety of impacts by leveraging failure to block the logback-core class from polymorphic deserialization.",
+          "cvss_v3_score": 5.9,
+          "cvss_v3_severity": "MEDIUM",
+          "cvss_v3_vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "cvss_source": "scanner",
+          "published": "2019-06-24",
+          "fix_version": "2.9.9.1"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "group_id": "com.google.guava",
+      "artifact_id": "guava",
+      "version": "24.1.1-jre",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "33.4.8-jre",
+      "fix_version": "32.0.0-jre",
+      "outdated": true,
+      "cves": [
+        {
+          "cve_id": "CVE-2023-2976",
+          "description": "Use of Java's default temporary directory for file creation in FileBackedOutputStream in Google Guava versions 1.0 to 31.1 on Unix systems and Android Ice Cream Sandwich allows other users and apps to read and write sensitive information.",
+          "cvss_v3_score": 5.5,
+          "cvss_v3_severity": "MEDIUM",
+          "cvss_v3_vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "cvss_source": "scanner",
+          "published": "2023-06-14",
+          "fix_version": "32.0.0-jre"
+        },
+        {
+          "cve_id": "CVE-2018-10237",
+          "description": "Unbounded memory allocation in Google Guava 11.0 through 24.x before 24.1.1 allows remote attackers to conduct denial of service attacks against servers that place no limits on the size of deserialized data via crafted serialized Java objects, related to AtomicDoubleArray and CompoundOrdering.",
+          "cvss_v3_score": 5.9,
+          "cvss_v3_severity": "MEDIUM",
+          "cvss_v3_vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "cvss_source": "scanner",
+          "published": "2018-04-26",
+          "fix_version": "24.1.1-jre"
+        },
+        {
+          "cve_id": "CVE-2020-8908",
+          "description": "A temp directory creation vulnerability exists in all versions of Guava, allowing an attacker with access to the machine to potentially access data in a temporary directory created by the Guava API com.google.common.io.Files.createTempDir().",
+          "cvss_v3_score": 3.3,
+          "cvss_v3_severity": "LOW",
+          "cvss_v3_vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+          "cvss_source": "scanner",
+          "published": "2020-12-10",
+          "fix_version": "32.0.0-jre"
+        }
+      ]
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "group_id": "mysql",
+      "artifact_id": "mysql-connector-java",
+      "version": "8.0.30",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "GPL-2.0",
+      "license_violation": true,
+      "license_violation_detail": "GPL-2.0 is a copyleft license incompatible with typical commercial/permissive-licensed projects. Inclusion creates license contamination risk.",
+      "latest_version": "8.0.33",
+      "fix_version": "8.0.33",
+      "outdated": true,
+      "cves": []
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "group_id": "commons-io",
+      "artifact_id": "commons-io",
+      "version": "2.4",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "2.18.0",
+      "fix_version": "2.18.0",
+      "outdated": true,
+      "cves": []
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "group_id": "org.apache.commons",
+      "artifact_id": "commons-lang3",
+      "version": "3.4",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "Apache-2.0",
+      "latest_version": "3.17.0",
+      "fix_version": "3.17.0",
+      "outdated": true,
+      "cves": []
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "group_id": "com.fastxml.jackson.core",
+      "artifact_id": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "dependency_type": "direct",
+      "license": "UNKNOWN",
+      "supply_chain_risk": "TYPOSQUATTED",
+      "supply_chain_detail": "groupId 'com.fastxml.jackson.core' does not exist on Maven Central. Impersonates 'com.fasterxml.jackson.core'. Resolution failure confirms coordinate is fictitious or malicious.",
+      "resolve_failure": true,
+      "fix_version": null,
+      "recommended_action": "REMOVE",
+      "outdated": true,
+      "cves": []
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter:5.10.2",
+      "group_id": "org.junit.jupiter",
+      "artifact_id": "junit-jupiter",
+      "version": "5.10.2",
+      "scope": "test",
+      "dependency_type": "direct",
+      "license": "EPL-2.0",
+      "latest_version": "5.13.0",
+      "fix_version": "5.13.0",
+      "outdated": true,
+      "cves": []
+    }
+  ],
+  "summary": {
+    "total_dependencies": 8,
+    "direct_dependencies": 8,
+    "transitive_dependencies": 0,
+    "total_cves": 13,
+    "critical_cves": 5,
+    "high_cves": 2,
+    "medium_cves": 5,
+    "low_cves": 1,
+    "outdated_dependencies": 8,
+    "license_violations": 1,
+    "supply_chain_alerts": 2,
+    "dependencies_with_cves": 3
+  }
+}
