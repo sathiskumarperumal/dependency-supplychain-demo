@@ -1,0 +1,56 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "c796e4d116490bc290777d45b0d4cbd4bdc30479",
+  "verdict": "WARN",
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "type": "grype_high_no_fix",
+      "coordinate": "mysql:mysql-connector-java:8.0.33",
+      "ghsa": "GHSA-m6vm-37g8-gqvh",
+      "cve": "CVE-2023-22102",
+      "cvss": 8.3,
+      "detail": "HIGH severity CVE with no available fix (fix state: not-fixed). NVD affected range: <= 8.1.0. No upstream fix version released for this 8.x line."
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "ghsa": "GHSA-3pxv-7cmr-fjr4",
+      "detail": "MEDIUM severity finding on log4j-core 2.17.1. Fix: 2.25.4"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "ghsa": "GHSA-vc5p-v9hr-52mj",
+      "detail": "MEDIUM severity finding on log4j-core 2.17.1. Fix: 2.25.3"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "ghsa": "GHSA-6hg6-v5c8-fphq",
+      "detail": "MEDIUM severity finding on log4j-core 2.17.1. Fix: 2.25.4"
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.commons:commons-lang3:3.14.0",
+      "ghsa": "GHSA-j288-q9x7-2f5v",
+      "detail": "MEDIUM severity finding on commons-lang3 3.14.0. Fix: 3.18.0"
+    }
+  ],
+  "counts": {
+    "grype_critical": 0,
+    "grype_high": 1,
+    "grype_high_with_fix": 0,
+    "grype_medium": 4,
+    "typosquat": 0,
+    "untrusted": 0,
+    "license_violations": 0
+  },
+  "notes": [
+    "Typosquatted coordinate com.fastxml.jackson.core:jackson-databind has been REMOVED by Stage 3.",
+    "Plain-HTTP internal-untrusted-mirror repository has been REMOVED by Stage 3.",
+    "Only HTTPS Maven Central repository is present in pom.xml.",
+    "GHSA-m6vm-37g8-gqvh (CVE-2023-22102) on mysql-connector-j 8.0.33 is HIGH but has fix state = not-fixed in Grype — no upstream fix published. Does not trigger BLOCK per supply-chain skill policy (block requires HIGH with available fix).",
+    "mysql:mysql-connector-java GPL-2.0 license: pre-existing issue tracked in GitHub issue #26, not introduced by this PR."
+  ]
+}
