@@ -1,54 +1,66 @@
 # Audit-Trail Final Report
 
-Project: **vulnerable-invoice-service** · Stage 5 (aggregate) · Generated 2026-06-10 · Health Score: **0 / 100** <span class="badge crit">Grade D — high risk</span>
+Project: **vulnerable-invoice-service** · Stages 1–4 (aggregate) · Generated 2026-06-18 · Branch: `fix/depscan-20260618-065936`
+
+Health Score: **72 / 100** <span class="badge high">Grade B — 1 HIGH CVE pending MAJOR_REVIEW</span>
 
 ## Executive summary
 
-- **9** dependencies scanned · **13** CVEs · **1 CRITICAL / 4 HIGH** dependencies.
-- **Supply-chain:** `BLOCK` — 1 typosquat + 1 untrusted HTTP repository.
-- **Licenses:** 1 violation (GPL-2.0 on mysql-connector-java).
-- **Remediation:** consolidated fix PR open (log4j → 2.17.1, jackson-databind → 2.13.4.2, typosquat removed).
-- **Latest gate outcome:** <span class="badge crit">BLOCK</span> until the fix PR merges.
+- **12** dependencies scanned · **12** CVEs found on `main` · **11** cleared by auto-remediation.
+- **Supply-chain:** 1 typosquat removed; 1 untrusted HTTP repo remains (manual action required).
+- **Licenses:** 1 pending review (GPL-2.0 on `mysql-connector-java` — coordinate migration needed).
+- **Remediation:** consolidated fix PR open (6 version bumps + 1 typosquat removal).
+- **Remaining:** 1 HIGH CVE in `mysql-connector-java:8.0.30` (GHSA-m6vm-37g8-gqvh) — MAJOR_REVIEW issue raised.
+- **Latest gate outcome:** see Stage 4 below.
 
 ## Health score breakdown
 
 | Factor | Deduction |
 |---|---|
-| Unresolved CRITICAL CVEs (4 × −15) | −60 |
-| Unresolved HIGH CVEs | −16 |
-| Supply-chain BLOCK findings (2 × −10) | −20 |
-| Outdated major-version deps | −9 |
-| **Score (floored at 0)** | **0 / 100** |
+| Unresolved HIGH CVEs (1 × −15) | −15 |
+| Supply-chain OPEN finding (1 × −10) — untrusted HTTP repo | −10 |
+| License violation pending MAJOR_REVIEW | −3 |
+| **Score** | **72 / 100** |
 
-> **Projected after the consolidated fix PR merges:** removing the typosquat + the HTTP repo and
-> bumping log4j/jackson clears the CRITICAL/HIGH CVEs and the supply-chain block → projected
-> **~88 / 100 (Grade B)**, remaining deductions from guava (major review) and routine outdated bumps.
+> **Projected after MAJOR_REVIEW merges:** migrating `mysql-connector-java` → `com.mysql:mysql-connector-j:9.x`
+> and removing the HTTP repository clears the last HIGH CVE and the supply-chain block → projected
+> **~95 / 100 (Grade A)**.
 
-## Top risks (ranked)
+## Dependency changes in this PR
 
-| Coordinate | Risk | Band | Top CVE | Status |
-|---|---|---|---|---|
-| log4j-core / log4j-api | 7.8 | <span class="badge high">HIGH</span> | CVE-2021-44228 | fix in PR |
-| jackson-databind | 7.8 | <span class="badge high">HIGH</span> | CVE-2019-14379 | fix in PR |
-| com.fastxml…:jackson-databind | — | <span class="badge crit">CRITICAL</span> | typosquat | remove in PR |
-| guava | 6.0 | <span class="badge high">HIGH</span> | CVE-2023-2976 | MAJOR_REVIEW |
-
-## Remediation activity
-
-| Dependency | Change | CVEs cleared | Status |
+| Coordinate | Change | CVEs cleared | Status |
 |---|---|---|---|
-| log4j-core / log4j-api | 2.14.1 → 2.17.1 | CVE-2021-44228, -45046, -45105, -44832 | in fix PR |
-| jackson-databind | 2.9.8 → 2.13.4.2 | 8 CVEs (incl. 2 critical) | in fix PR |
-| com.fastxml typosquat | removed | n/a (supply-chain) | in fix PR |
-| guava | 24 → 32 | CVE-2023-2976 | MAJOR_REVIEW issue |
+| com.fastxml…:jackson-databind | REMOVED (typosquat) | n/a (supply-chain) | ✅ merged in this PR |
+| log4j-core / log4j-api | 2.14.1 → 2.25.4 | CVE-2021-44228 (10.0), -45046, -45105 + 3 GHSAs | ✅ merged in this PR |
+| jackson-databind | 2.9.8 → 2.18.3 | CVE-2020-8840 (9.8) + 53 others | ✅ merged in this PR |
+| guava | 24.1.1-jre → 33.4.0-jre | CVE-2023-2976, CVE-2020-8908 | ✅ merged in this PR |
+| commons-io | 2.4 → 2.18.0 | CVE-2024-47554 (8.7) | ✅ merged in this PR |
+| commons-lang3 | 3.4 → 3.18.0 | CVE-2025-48924, GHSA-j288 | ✅ merged in this PR |
+| mysql-connector-java | 8.0.30 — no safe in-kind fix | GHSA-m6vm-37g8-gqvh (8.9) | ⚠️ MAJOR_REVIEW issue |
 
-## Gate (Stage 4) — current verdict: BLOCK
+## Top remaining risks
+
+| Coordinate | Risk | Band | Top CVE | Action |
+|---|---|---|---|---|
+| mysql:mysql-connector-java | 7.2 | <span class="badge high">HIGH</span> | CVE-2023-22102 (8.9) | MAJOR_REVIEW — migrate to `com.mysql:mysql-connector-j:9.1.0` |
+| (untrusted HTTP repo) | — | <span class="badge med">MEDIUM</span> | supply-chain | Remove `http://insecure-mirror.example.net/maven2` from pom.xml |
+
+## Supply-chain audit
+
+> **RESOLVED** — Typosquatted `com.fastxml.jackson.core:jackson-databind` removed from `pom.xml`.
+
+> **OPEN** — Plain-HTTP Maven repository `http://insecure-mirror.example.net/maven2` still declared.
+> Requires manual removal (separate PR).
+
+## Stage 4 gate verdict
 
 | Check | Result |
 |---|---|
-| Unit tests | <span class="badge ok">PASS</span> |
-| OWASP CVE (0 CRITICAL/HIGH) | <span class="badge crit">FAIL</span> |
-| Supply-chain audit | <span class="badge crit">FAIL</span> (BLOCK) |
+| Unit tests | <span class="badge ok">PASS</span> (2/2) |
+| OWASP / Grype CVE (0 CRITICAL/HIGH after fix) | <span class="badge high">CONDITIONAL</span> — 1 HIGH in mysql (MAJOR_REVIEW) |
+| Supply-chain audit | <span class="badge med">WARN</span> — untrusted HTTP repo (manual) |
+
+*Full gate verdict posted as PR review. See Stage 4 section for details.*
 
 ---
-*Aggregated from `depscan-report.json`, `depscan-risk-report.json`, and the supply-chain audit. Generated by the Dependency & Supply-Chain Plugin — Stage 5.*
+*Aggregated from `depscan-report.json`, `depscan-risk-report.json`, and post-remediation Grype scan. Generated by the Dependency & Supply-Chain Plugin.*
