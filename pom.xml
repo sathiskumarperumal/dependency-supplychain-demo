@@ -61,16 +61,17 @@
              ISSUE #2 — KNOWN CVE / VULNERABLE DEPENDENCIES
              ========================================================== -->
 
-        <!-- Bumped 2.14.1 → 2.17.2: resolves CVE-2021-44228 (Log4Shell, CVSS 10.0), CVE-2021-45046, CVE-2026-34479 -->
+        <!-- Bumped 2.14.1 → 2.25.4: resolves CVE-2021-44228 (Log4Shell, CVSS 10.0), CVE-2021-45046,
+             CVE-2026-34479, GHSA-3pxv-7cmr-fjr4, GHSA-vc5p-v9hr-52mj, GHSA-6hg6-v5c8-fphq -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.17.2</version>
+            <version>2.25.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.17.2</version>
+            <version>2.25.4</version>
         </dependency>
 
         <!-- Bumped 2.9.8 → 2.14.0: resolves CVE-2019-14379 (CVSS 9.8), CVE-2019-12384, CVE-2020-36518, and 51 others -->
@@ -97,11 +98,11 @@
             <artifactId>commons-io</artifactId>
             <version>2.15.1</version>
         </dependency>
-        <!-- Bumped 3.4 → 3.17.0: resolves CVE-2025-48924 (CVSS 5.3) -->
+        <!-- Bumped 3.4 → 3.18.0: resolves CVE-2025-48924 (CVSS 5.3), GHSA-j288-q9x7-2f5v (uncontrolled recursion) -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.17.0</version>
+            <version>3.18.0</version>
         </dependency>
 
         <!-- ==========================================================
