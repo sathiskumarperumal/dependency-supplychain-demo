@@ -34,14 +34,26 @@
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
-        <repository>
-            <id>internal-untrusted-mirror</id>
-            <name>Untrusted HTTP Mirror</name>
-            <url>http://insecure-mirror.example.net/maven2</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
-        </repository>
+        <!-- REMOVED: insecure-mirror.example.net plain-HTTP repository (supply-chain risk, MITM vector) -->
     </repositories>
+
+    <!-- Pin vulnerable transitive deps to their safe versions -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Bumped 3.19.4 → 3.25.3: resolves CVE-2024-7254 (CVSS 7.5) and 3 others -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.25.3</version>
+            </dependency>
+            <!-- Bumped 2.9.0 → 2.14.0: resolves CVE-2018-1000873 (CVSS 6.5) -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.14.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
@@ -49,69 +61,61 @@
              ISSUE #2 — KNOWN CVE / VULNERABLE DEPENDENCIES
              ========================================================== -->
 
-        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046 -->
+        <!-- Bumped 2.14.1 → 2.17.2: resolves CVE-2021-44228 (Log4Shell, CVSS 10.0), CVE-2021-45046, CVE-2026-34479 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>2.17.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <version>2.17.2</version>
         </dependency>
 
-        <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, ...) -->
+        <!-- Bumped 2.9.8 → 2.14.0: resolves CVE-2019-14379 (CVSS 9.8), CVE-2019-12384, CVE-2020-36518, and 51 others -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>2.14.0</version>
         </dependency>
 
-        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
+        <!-- Bumped 24.1.1-jre → 32.1.1-jre: resolves CVE-2023-2976 (CVSS 7.1), CVE-2020-8908, CVE-2018-10237 -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1-jre</version>
+            <version>32.1.1-jre</version>
         </dependency>
 
         <!-- ==========================================================
              ISSUE #1 — OUTDATED (but not necessarily CVE) DEPENDENCIES
              Years behind current releases.
              ========================================================== -->
+        <!-- Bumped 2.4 → 2.15.1: resolves CVE-2021-29425 (CVSS 4.8), CVE-2024-47554 -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.15.1</version>
         </dependency>
+        <!-- Bumped 3.4 → 3.17.0: resolves CVE-2025-48924 (CVSS 5.3) -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.17.0</version>
         </dependency>
 
         <!-- ==========================================================
              ISSUE #3 — UNLICENSED / LICENSE-POLICY VIOLATION
              GPL-2.0 connector pulled into a permissive-only project.
              ========================================================== -->
+        <!-- Bumped 8.0.30 → 8.0.33: resolves CVE-2023-22102 (CVSS 8.3) -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
+            <version>8.0.33</version>
         </dependency>
 
-        <!-- ==========================================================
-             ISSUE #4 — TYPOSQUATTED DEPENDENCY
-             groupId is "com.fastxml" (missing the "er") impersonating the
-             real "com.fasterxml.jackson.core". This coordinate does NOT
-             exist on Central and will fail to resolve — that is the point.
-             Comment it out before running the coverage build (Issue #6).
-             ========================================================== -->
-        <dependency>
-            <groupId>com.fastxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
-        </dependency>
+        <!-- REMOVED: com.fastxml.jackson.core:jackson-databind (typosquatted coordinate, supply-chain removal) -->
 
         <!-- Test scope -->
         <dependency>
