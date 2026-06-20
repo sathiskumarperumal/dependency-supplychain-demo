@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "tool": "depscan-supplychain-audit",
+  "source_sha": "fb0b2e129b1f8a985b9c5a137f4b1ff3f48df0b3",
+  "scan_date": "2026-06-20T00:00:00Z",
+  "pr_number": 33,
+  "branch": "fix/depscan-20260620-063027",
+  "verdict": "WARN",
+  "supply_chain_findings": [
+    {
+      "type": "INSECURE_REPOSITORY",
+      "coordinate": "http://insecure-mirror.example.net/maven2",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "action": "REMOVED from pom.xml — only HTTPS Maven Central remains",
+      "resolution": "PR fix/depscan-20260620-063027"
+    },
+    {
+      "type": "TYPOSQUATTING",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "severity": "CRITICAL",
+      "status": "RESOLVED",
+      "action": "REMOVED from pom.xml — typosquatted coordinate eliminated",
+      "resolution": "PR fix/depscan-20260620-063027"
+    },
+    {
+      "type": "CVE_HIGH",
+      "coordinate": "commons-io:commons-io:2.7",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "action": "Bumped commons-io 2.7 -> 2.14.0 (clears CVE-2024-47554 CVSS 7.5 HIGH)",
+      "resolution": "PR fix/depscan-20260620-063027 gate-blocker commit fb0b2e1"
+    },
+    {
+      "type": "CVE_HIGH",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "severity": "HIGH",
+      "status": "RESOLVED",
+      "action": "Replaced mysql:mysql-connector-java:8.0.30 with com.mysql:mysql-connector-j:9.0.0 (clears CVE-2023-22102 CVSS 8.3 HIGH and GPL-2.0 license violation)",
+      "resolution": "PR fix/depscan-20260620-063027 gate-blocker commit fb0b2e1"
+    }
+  ],
+  "grype_scan": {
+    "total_matches": 4,
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 0,
+    "high_findings": [],
+    "medium_findings": [
+      {
+        "id": "GHSA-j288-q9x7-2f5v",
+        "severity": "MEDIUM",
+        "package": "commons-lang3",
+        "version": "3.14.0",
+        "fix_versions": ["3.18.0"],
+        "fix_state": "fixed",
+        "description": "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs"
+      },
+      {
+        "id": "GHSA-3pxv-7cmr-fjr4",
+        "severity": "MEDIUM",
+        "package": "log4j-core",
+        "version": "2.17.1",
+        "fix_versions": ["2.25.4"],
+        "fix_state": "fixed",
+        "description": "Apache Log4j Core: Silent log event loss in XmlLayout due to unescaped XML 1.0 forbidden characters"
+      },
+      {
+        "id": "GHSA-vc5p-v9hr-52mj",
+        "severity": "MEDIUM",
+        "package": "log4j-core",
+        "version": "2.17.1",
+        "fix_versions": ["2.25.3"],
+        "fix_state": "fixed",
+        "description": "Apache Log4j does not verify the TLS hostname in its Socket Appender"
+      },
+      {
+        "id": "GHSA-6hg6-v5c8-fphq",
+        "severity": "MEDIUM",
+        "package": "log4j-core",
+        "version": "2.17.1",
+        "fix_versions": ["2.25.4"],
+        "fix_state": "fixed",
+        "description": "Apache Log4j Core: verifyHostName attribute silently ignored in TLS configuration"
+      }
+    ]
+  },
+  "summary": {
+    "typosquatting_resolved": true,
+    "insecure_repository_resolved": true,
+    "cve_high_resolved": [
+      "CVE-2024-47554 (commons-io 2.14.0)",
+      "CVE-2023-22102 (mysql-connector-j 9.0.0 replacement)"
+    ],
+    "license_violations_resolved": [
+      "mysql:mysql-connector-java:8.0.30 (GPL-2.0) replaced with com.mysql:mysql-connector-j:9.0.0 (GPL FOSS exception)"
+    ],
+    "unresolved_high_cves": 0,
+    "unresolved_critical_cves": 0,
+    "supply_chain_gate_verdict": "WARN"
+  }
+}
