@@ -1,0 +1,297 @@
+{
+  "schema_version": "1.0",
+  "tool": "dependency-risk-scanner (Stage 1)",
+  "project": "vulnerable-invoice-service",
+  "groupId": "com.demo.supplychain",
+  "artifactId": "vulnerable-invoice-service",
+  "version": "1.0.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scan_date": "2026-06-20",
+  "pom_path": "pom.xml",
+  "supply_chain_issues": [
+    {
+      "type": "INSECURE_REPOSITORY",
+      "id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "description": "Repository served over plain HTTP from an unverified host. Susceptible to MITM artifact injection.",
+      "severity": "HIGH"
+    },
+    {
+      "type": "TYPOSQUATTING",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "legitimate_coordinate": "com.fasterxml.jackson.core:jackson-databind",
+      "description": "groupId 'com.fastxml' omits 'er' from 'fasterxml', impersonating the legitimate Jackson library. Coordinate is unresolvable on Maven Central — resolution blocked by HTTP mirror blocker.",
+      "severity": "CRITICAL"
+    }
+  ],
+  "dependencies": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-core",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "3.0.0-beta3",
+      "fix_version": "2.17.1",
+      "outdated": true,
+      "years_behind": 4,
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-2021-44228",
+          "description": "Log4Shell: JNDI injection via log message data enabling unauthenticated RCE",
+          "cvssv3": { "baseScore": 10.0, "baseSeverity": "CRITICAL", "vector": "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.15.0", "2.17.1"]
+        },
+        {
+          "cve_id": "CVE-2021-45046",
+          "description": "Log4j2 Thread Context Map pattern and a Context Lookup pattern allows crafted input to allow JNDI lookup",
+          "cvssv3": { "baseScore": 9.0, "baseSeverity": "CRITICAL", "vector": "AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.16.0", "2.17.1"]
+        },
+        {
+          "cve_id": "CVE-2021-45105",
+          "description": "Infinite recursion / DoS via crafted string in log message",
+          "cvssv3": { "baseScore": 5.9, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.0"]
+        },
+        {
+          "cve_id": "CVE-2021-44832",
+          "description": "Remote code execution via JDBC Appender with attacker-controlled configuration",
+          "cvssv3": { "baseScore": 6.6, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.1"]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-api",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "3.0.0-beta2",
+      "fix_version": "2.17.1",
+      "outdated": true,
+      "years_behind": 4,
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-2021-44228",
+          "description": "Log4Shell: same vulnerable release train; API jar is co-deployed with core",
+          "cvssv3": { "baseScore": 10.0, "baseSeverity": "CRITICAL", "vector": "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.1"]
+        },
+        {
+          "cve_id": "CVE-2021-45046",
+          "description": "Context lookup pattern injection",
+          "cvssv3": { "baseScore": 9.0, "baseSeverity": "CRITICAL", "vector": "AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.1"]
+        },
+        {
+          "cve_id": "CVE-2021-45105",
+          "description": "Infinite recursion DoS",
+          "cvssv3": { "baseScore": 5.9, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.0"]
+        },
+        {
+          "cve_id": "CVE-2021-44832",
+          "description": "JDBC Appender RCE with attacker-controlled config",
+          "cvssv3": { "baseScore": 6.6, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.17.1"]
+        }
+      ]
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "2.22.0",
+      "fix_version": "2.14.0",
+      "outdated": true,
+      "years_behind": 7,
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-2019-14379",
+          "description": "Unsafe deserialization via SubTypeValidator.isValid; RCE via polymorphic typing",
+          "cvssv3": { "baseScore": 9.8, "baseSeverity": "CRITICAL", "vector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.9.10", "2.10.0"]
+        },
+        {
+          "cve_id": "CVE-2019-14439",
+          "description": "Deserialization gadget chain via logback-classic",
+          "cvssv3": { "baseScore": 7.5, "baseSeverity": "HIGH", "vector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.9.10"]
+        },
+        {
+          "cve_id": "CVE-2020-36518",
+          "description": "Uncontrolled resource consumption via deeply nested JSON arrays/objects (StackOverflowError)",
+          "cvssv3": { "baseScore": 7.5, "baseSeverity": "HIGH", "vector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.13.2"]
+        },
+        {
+          "cve_id": "CVE-2022-42003",
+          "description": "Uncontrolled resource consumption in _deserializeFromArray2d",
+          "cvssv3": { "baseScore": 7.5, "baseSeverity": "HIGH", "vector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.13.4", "2.14.0"]
+        },
+        {
+          "cve_id": "CVE-2022-42004",
+          "description": "Uncontrolled resource consumption in BeanDeserializer",
+          "cvssv3": { "baseScore": 7.5, "baseSeverity": "HIGH", "vector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.13.4", "2.14.0"]
+        },
+        {
+          "cve_id": "CVE-2019-12384",
+          "description": "Server-side request forgery via H2 database JDBC URL in type embedder",
+          "cvssv3": { "baseScore": 5.9, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.9.9"]
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "groupId": "com.google.guava",
+      "artifactId": "guava",
+      "version": "24.1.1-jre",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "33.6.0-jre",
+      "fix_version": "32.0.0-jre",
+      "outdated": true,
+      "years_behind": 6,
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-2020-8908",
+          "description": "Insecure temporary directory creation via Files.createTempDir() — predictable paths on Unix",
+          "cvssv3": { "baseScore": 3.3, "baseSeverity": "LOW", "vector": "AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N" },
+          "cvss_source": "nvd",
+          "fix_versions": ["30.0-jre"]
+        },
+        {
+          "cve_id": "CVE-2018-10237",
+          "description": "Unbounded memory allocation via hash-flooding in AtomicDoubleArray and CompoundOrdering",
+          "cvssv3": { "baseScore": 5.9, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H" },
+          "cvss_source": "nvd",
+          "fix_versions": ["24.1.1-android", "27.0-jre"]
+        }
+      ]
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "groupId": "commons-io",
+      "artifactId": "commons-io",
+      "version": "2.4",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "2.22.0",
+      "fix_version": "2.7",
+      "outdated": true,
+      "years_behind": 11,
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-2021-29425",
+          "description": "Partial path traversal vulnerability in FileNameUtils.normalize() allows access outside intended directory under specific conditions",
+          "cvssv3": { "baseScore": 4.8, "baseSeverity": "MEDIUM", "vector": "AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N" },
+          "cvss_source": "nvd",
+          "fix_versions": ["2.7"]
+        }
+      ]
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.4",
+      "scope": "compile",
+      "direct": true,
+      "license": "Apache-2.0",
+      "latest_version": "3.20.0",
+      "fix_version": "3.14.0",
+      "outdated": true,
+      "years_behind": 9,
+      "vulnerabilities": []
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "groupId": "mysql",
+      "artifactId": "mysql-connector-java",
+      "version": "8.0.30",
+      "scope": "compile",
+      "direct": true,
+      "license": "GPL-2.0",
+      "license_violation": true,
+      "license_violation_detail": "GPL-2.0 is a copyleft license incompatible with permissive-only (Apache-2.0/MIT) projects. Including this connector may require the entire application to be GPL-licensed.",
+      "latest_version": "8.0.33",
+      "fix_version": "8.0.33",
+      "outdated": false,
+      "vulnerabilities": []
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "groupId": "com.fastxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "license": "UNKNOWN",
+      "supply_chain_risk": "TYPOSQUATTING",
+      "supply_chain_detail": "groupId 'com.fastxml' is missing 'er' from the legitimate 'com.fasterxml'. This coordinate does not exist on Maven Central. Resolution was blocked by Maven's HTTP mirror blocker. Risk: if a malicious actor publishes to a repo with this groupId, arbitrary code could be injected.",
+      "resolution_status": "UNRESOLVABLE",
+      "latest_version": "N/A",
+      "fix_version": "REMOVE",
+      "outdated": false,
+      "vulnerabilities": []
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter:5.10.2",
+      "groupId": "org.junit.jupiter",
+      "artifactId": "junit-jupiter",
+      "version": "5.10.2",
+      "scope": "test",
+      "direct": true,
+      "license": "EPL-2.0",
+      "latest_version": "6.1.0",
+      "fix_version": "5.12.2",
+      "outdated": true,
+      "years_behind": 1,
+      "vulnerabilities": []
+    }
+  ],
+  "summary": {
+    "total_dependencies": 9,
+    "direct": 9,
+    "transitive": 0,
+    "with_cves": 5,
+    "total_cves": 13,
+    "critical_cves": 4,
+    "high_cves": 6,
+    "medium_cves": 3,
+    "low_cves": 1,
+    "license_violations": 1,
+    "typosquatting_detections": 1,
+    "insecure_repositories": 1,
+    "outdated_dependencies": 7
+  }
+}
