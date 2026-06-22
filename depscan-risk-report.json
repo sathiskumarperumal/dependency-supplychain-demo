@@ -1,0 +1,112 @@
+{
+  "project": "vulnerable-invoice-service",
+  "scanned_at": "2026-06-22T07:25:00Z",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "ranked": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2021-44228",
+      "fix_version": "2.17.1",
+      "rationale": "Internal service \u2014 DiscountCalculator uses LogManager; CVE-2021-44228 CVSS 10.0; fix available: 2.17.1"
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2019-14379",
+      "fix_version": "2.14.0",
+      "rationale": "Internal service \u2014 deserialization in business logic layer; CVE-2019-14379 CVSS 9.8; fix available: 2.14.0"
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_severity": 8.3,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.0,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-22102",
+      "fix_version": "8.0.31",
+      "rationale": "Internal service \u2014 database connectivity; CVE-2023-22102 CVSS 8.3; fix available: 8.0.31"
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_severity": 8.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2026-34479",
+      "fix_version": "2.17.1",
+      "rationale": "Internal service \u2014 paired with log4j-core; CVE-2026-34479 CVSS 7.5; fix available: 2.17.1"
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "cve_severity": 9.0,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.7,
+      "band": "HIGH",
+      "top_cve": "CVE-2024-7254",
+      "fix_version": "3.25.5",
+      "rationale": "Internal service \u2014 transitive via mysql-connector; CVE-2024-7254 CVSS 7.5; fix available: 3.25.5"
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_severity": 7.6,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.3,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-2976",
+      "fix_version": "32.0.0-jre",
+      "rationale": "Internal service \u2014 general utility; CVE-2023-2976 CVSS 7.1; fix available: 32.0.0-jre"
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "cve_severity": 6.5,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.5,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2018-1000873",
+      "fix_version": "2.9.8",
+      "rationale": "Internal service \u2014 transitive annotation module; CVE-2018-1000873 CVSS 6.5; fix available: 2.9.8"
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.2,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2021-29425",
+      "fix_version": "2.14.0",
+      "rationale": "Internal service \u2014 file IO utilities; CVE-2021-29425 CVSS 4.8; fix available: 2.14.0"
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.2,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2025-48924",
+      "fix_version": "3.20.0",
+      "rationale": "Internal service \u2014 string/lang utilities; CVE-2025-48924 CVSS 5.3; fix available: 3.20.0"
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "high": 6,
+    "medium": 3,
+    "low": 0
+  }
+}
