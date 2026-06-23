@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scan_date": "2026-06-23T06:09:22Z",
+  "project": "com.demo.supplychain:vulnerable-invoice-service:1.0.0",
+  "scanner": {
+    "name": "OWASP Dependency-Check",
+    "version": "12.2.2",
+    "nvd_data_timestamp": "2026-06-13T06:35:05Z"
+  },
+  "findings": [
+    {
+      "id": "CVE-2021-44228",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 10.0,
+      "severity": "CRITICAL",
+      "cvss_source": "scanner",
+      "description": "Log4Shell: Apache Log4j2 JNDI features do not protect against attacker-controlled LDAP and other JNDI related endpoints. An attacker can exfiltrate data or execute arbitrary code.",
+      "fix_version": "2.17.1",
+      "cwe": "CWE-917",
+      "kev": true
+    },
+    {
+      "id": "CVE-2021-45046",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 9.0,
+      "severity": "CRITICAL",
+      "cvss_source": "scanner",
+      "description": "Apache Log4j2 Thread Context message pattern and Context Lookup pattern can result in a denial of service (via infinite loop) or information disclosure.",
+      "fix_version": "2.17.1",
+      "cwe": "CWE-400"
+    },
+    {
+      "id": "CVE-2026-34479",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2.",
+      "fix_version": "2.26.0"
+    },
+    {
+      "id": "CVE-2026-34480",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2.",
+      "fix_version": "2.26.0"
+    },
+    {
+      "id": "CVE-2021-44832",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 6.6,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Apache Log4j2 versions 2.0-beta7 through 2.17.0 (excluding security fixes 2.3.2 and 2.12.4) are vulnerable to a remote code execution (RCE) attack when a configuration uses a JDBC Appender.",
+      "fix_version": "2.17.1"
+    },
+    {
+      "id": "CVE-2021-45105",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 5.9,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Apache Log4j2 does not always protect from infinite recursion in lookup evaluation.",
+      "fix_version": "2.17.1"
+    },
+    {
+      "id": "CVE-2025-68161",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 4.8,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2.",
+      "fix_version": "2.24.3"
+    },
+    {
+      "id": "CVE-2026-34477",
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cvss": 5.9,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2.",
+      "fix_version": "2.26.0"
+    },
+    {
+      "id": "CVE-2026-34479",
+      "dependency": "org.apache.logging.log4j:log4j-api",
+      "version": "2.14.1",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2 API.",
+      "fix_version": "2.26.0"
+    },
+    {
+      "id": "CVE-2026-34477",
+      "dependency": "org.apache.logging.log4j:log4j-api",
+      "version": "2.14.1",
+      "cvss": 5.9,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in Apache Log4j2 API.",
+      "fix_version": "2.26.0"
+    },
+    {
+      "id": "CVE-2019-14379",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 9.8,
+      "severity": "CRITICAL",
+      "cvss_source": "scanner",
+      "description": "SubTypeValidator.java in FasterXML jackson-databind mishandles default typing when ehcache is used.",
+      "fix_version": "2.9.9.2"
+    },
+    {
+      "id": "CVE-2019-14540",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 9.8,
+      "severity": "CRITICAL",
+      "cvss_source": "scanner",
+      "description": "A Polymorphic Typing issue in FasterXML jackson-databind before 2.9.10.",
+      "fix_version": "2.9.10"
+    },
+    {
+      "id": "CVE-2019-14892",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 9.8,
+      "severity": "CRITICAL",
+      "cvss_source": "scanner",
+      "description": "Polymorphic typing issue in jackson-databind before 2.9.10.",
+      "fix_version": "2.9.10"
+    },
+    {
+      "id": "CVE-2020-36518",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "jackson-databind 2.13.x before 2.13.2.1 allows attackers to cause a denial-of-service via a large depth of nested objects.",
+      "fix_version": "2.13.2.1"
+    },
+    {
+      "id": "CVE-2022-42003",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur.",
+      "fix_version": "2.14.0"
+    },
+    {
+      "id": "CVE-2022-42004",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "In FasterXML jackson-databind before 2.13.4, resource exhaustion via chained `BeanDeserializer`.",
+      "fix_version": "2.13.4"
+    },
+    {
+      "id": "CVE-2023-35116",
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cvss": 4.7,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "jackson-databind through 2.15.2 allows attackers to cause a denial of service via a crafted object that uses cyclic dependencies.",
+      "fix_version": "2.15.3"
+    },
+    {
+      "id": "CVE-2018-1000873",
+      "dependency": "com.fasterxml.jackson.core:jackson-annotations",
+      "version": "2.9.0",
+      "cvss": 6.5,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Fasterxml Jackson before 2.9.8 contains improper input validation vulnerability in Polymorphic Deserialization.",
+      "fix_version": "2.9.8"
+    },
+    {
+      "id": "CVE-2023-2976",
+      "dependency": "com.google.guava:guava",
+      "version": "24.1.1-jre",
+      "cvss": 7.1,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Use of Java's default temporary directory for file creation in FileBackedOutputStream in Google Guava allows attackers to access sensitive information.",
+      "fix_version": "32.0.0-jre"
+    },
+    {
+      "id": "CVE-2020-8908",
+      "dependency": "com.google.guava:guava",
+      "version": "24.1.1-jre",
+      "cvss": 3.3,
+      "severity": "LOW",
+      "cvss_source": "scanner",
+      "description": "A temp directory creation vulnerability in all versions of Guava allows local attackers with write access to exploit the default permissions on newly created directories.",
+      "fix_version": "32.0.0-jre"
+    },
+    {
+      "id": "CVE-2021-29425",
+      "dependency": "commons-io:commons-io",
+      "version": "2.4",
+      "cvss": 4.8,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "In Apache Commons IO before 2.7, FileNameUtils.normalize with an improper input string can result in a path traversal attack.",
+      "fix_version": "2.7"
+    },
+    {
+      "id": "CVE-2024-47554",
+      "dependency": "commons-io:commons-io",
+      "version": "2.4",
+      "cvss": 4.3,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Uncontrolled Resource Consumption vulnerability in Apache Commons IO.",
+      "fix_version": "2.14.0"
+    },
+    {
+      "id": "CVE-2025-48924",
+      "dependency": "org.apache.commons:commons-lang3",
+      "version": "3.4",
+      "cvss": 5.3,
+      "severity": "MEDIUM",
+      "cvss_source": "scanner",
+      "description": "Uncontrolled Recursion vulnerability in Apache Commons Lang.",
+      "fix_version": "3.17.0"
+    },
+    {
+      "id": "CVE-2023-22102",
+      "dependency": "mysql:mysql-connector-java",
+      "version": "8.0.30",
+      "cvss": 8.3,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Vulnerability in the MySQL Connectors product of Oracle MySQL. Easily exploitable vulnerability allows unauthenticated attacker with network access via SSL/TLS to compromise MySQL Connectors.",
+      "fix_version": "8.0.31"
+    },
+    {
+      "id": "CVE-2024-7254",
+      "dependency": "com.google.protobuf:protobuf-java",
+      "version": "3.19.4",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "Any project that parses untrusted Protocol Buffers data containing an arbitrary number of nested groups / series of SGROUP tags can corrupted by exceeding the stack limit i.e. StackOverflow.",
+      "fix_version": "3.25.5"
+    },
+    {
+      "id": "CVE-2022-3171",
+      "dependency": "com.google.protobuf:protobuf-java",
+      "version": "3.19.4",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "A parsing issue with binary data in protobuf-java allows a specially crafted message to trigger an StackOverflow error.",
+      "fix_version": "3.21.7"
+    },
+    {
+      "id": "CVE-2022-3509",
+      "dependency": "com.google.protobuf:protobuf-java",
+      "version": "3.19.4",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "A parsing issue similar to CVE-2022-3171 in protobuf-java textformat allows a DoS attack.",
+      "fix_version": "3.21.7"
+    },
+    {
+      "id": "CVE-2022-3510",
+      "dependency": "com.google.protobuf:protobuf-java",
+      "version": "3.19.4",
+      "cvss": 7.5,
+      "severity": "HIGH",
+      "cvss_source": "scanner",
+      "description": "A parsing issue similar to CVE-2022-3171 in protobuf-java messageformat allows a DoS attack.",
+      "fix_version": "3.21.7"
+    }
+  ],
+  "outdated": [
+    {
+      "dependency": "org.apache.logging.log4j:log4j-core",
+      "current_version": "2.14.1",
+      "latest_version": "2.26.0",
+      "versions_behind": "major",
+      "note": "Log4Shell fix requires minimum 2.17.1; latest stable is 2.26.0"
+    },
+    {
+      "dependency": "org.apache.logging.log4j:log4j-api",
+      "current_version": "2.14.1",
+      "latest_version": "2.26.0",
+      "versions_behind": "major"
+    },
+    {
+      "dependency": "com.fasterxml.jackson.core:jackson-databind",
+      "current_version": "2.9.8",
+      "latest_version": "2.18.4",
+      "versions_behind": "major",
+      "note": "9+ minor releases behind; multiple CRITICAL deserialization CVEs fixed in 2.10.x through 2.18.x"
+    },
+    {
+      "dependency": "com.google.guava:guava",
+      "current_version": "24.1.1-jre",
+      "latest_version": "33.4.8-jre",
+      "versions_behind": "major"
+    },
+    {
+      "dependency": "commons-io:commons-io",
+      "current_version": "2.4",
+      "latest_version": "2.18.0",
+      "versions_behind": "major"
+    },
+    {
+      "dependency": "org.apache.commons:commons-lang3",
+      "current_version": "3.4",
+      "latest_version": "3.17.0",
+      "versions_behind": "major"
+    },
+    {
+      "dependency": "mysql:mysql-connector-java",
+      "current_version": "8.0.30",
+      "latest_version": "8.0.33",
+      "versions_behind": "patch",
+      "note": "Also consider migrating to com.mysql:mysql-connector-j (the new groupId/artifactId)"
+    }
+  ],
+  "supply_chain_alerts": [
+    {
+      "type": "TYPOSQUATTING",
+      "severity": "CRITICAL",
+      "dependency": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "legitimate_coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "description": "groupId 'com.fastxml.jackson.core' is missing the 'er' in 'fasterxml' — a classic one-character typosquat impersonating the legitimate FasterXML Jackson library. This coordinate does not exist on Maven Central and will always fail to resolve. A malicious actor could publish this coordinate to a non-Central registry (such as the HTTP mirror declared in pom.xml) to intercept builds.",
+      "recommendation": "Remove com.fastxml.jackson.core:jackson-databind immediately. The legitimate dependency com.fasterxml.jackson.core:jackson-databind is already declared — this is a duplicate with a dangerous misspelling."
+    },
+    {
+      "type": "UNTRUSTED_HTTP_REPOSITORY",
+      "severity": "HIGH",
+      "repository_id": "internal-untrusted-mirror",
+      "repository_url": "http://insecure-mirror.example.net/maven2",
+      "description": "A Maven repository served over plain HTTP (not HTTPS) from an unverified external host is declared in pom.xml. HTTP repositories allow man-in-the-middle attacks: an attacker on-path can substitute any artifact with a malicious version. Maven 3.8.1+ blocks HTTP mirrors by default (the 'maven-default-http-blocker' mirror rule), which is what caused the build failure in this scan.",
+      "recommendation": "Remove this repository declaration entirely. If an internal mirror is required, it must use HTTPS with a valid certificate. Never declare external HTTP repos in project pom.xml."
+    }
+  ],
+  "license_violations": [
+    {
+      "dependency": "mysql:mysql-connector-java:8.0.30",
+      "license": "GPL-2.0",
+      "policy": "project uses permissive (Apache-2.0) license",
+      "severity": "HIGH",
+      "description": "MySQL Connector/J 8.0.x is distributed under GPL-2.0. Linking GPL-2.0 code into a permissive-licensed project creates a copyleft obligation: the entire combined work may need to be distributed under GPL-2.0. This is a legal risk for proprietary or commercially distributed software.",
+      "recommendation": "Either obtain a commercial MySQL license (Oracle commercial exception), switch to MariaDB Connector/J (LGPL-2.1, compatible with permissive projects), or use a connection pool abstraction that keeps the connector off the compile/runtime classpath in distributed artifacts."
+    }
+  ],
+  "scan_notes": [
+    "Typosquatted dependency com.fastxml.jackson.core:jackson-databind:2.9.8 could not be resolved from Maven Central (by design — coordinate does not exist). It was excluded from the OWASP vulnerability scan but flagged as a supply-chain alert.",
+    "HTTP mirror http://insecure-mirror.example.net/maven2 was blocked by Maven 3.8.1+ default security policy (maven-default-http-blocker). The scan used a clean pom without this repository.",
+    "OWASP Dependency-Check ran with -DautoUpdate=false using cached NVD data from 2026-06-13. All CVSS scores sourced from scanner (cvss_source: scanner).",
+    "protobuf-java 3.19.4 is a transitive dependency pulled in by mysql-connector-java 8.0.30 and carries 4 HIGH CVEs (CVSS 7.5 each)."
+  ]
+}
