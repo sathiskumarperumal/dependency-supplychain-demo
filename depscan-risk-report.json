@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0",
+  "project": "vulnerable-invoice-service",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scored_at": "2026-06-23T06:09:22Z",
+  "scoring_weights": {
+    "cve_severity": 0.5,
+    "exposure": 0.3,
+    "business_criticality": 0.2
+  },
+  "ranked": [
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 0.0,
+      "exposure": 8.0,
+      "business_criticality": 5.0,
+      "risk_score": 3.4,
+      "band": "CRITICAL",
+      "top_cve": "N/A — supply chain threat (typosquat)",
+      "fix_version": "Remove immediately; use com.fasterxml.jackson.core:jackson-databind",
+      "cvss_source": "N/A",
+      "criticality_source": "inferred",
+      "rationale": "CRITICAL supply-chain alert: groupId 'com.fastxml.jackson.core' is a one-character typosquat of the legitimate 'com.fasterxml.jackson.core'. Does not exist on Maven Central. A malicious actor could publish this coordinate to the untrusted HTTP mirror also declared in pom.xml. Band forced to CRITICAL as a supply-chain threat regardless of weighted score.",
+      "component_notes": {
+        "cve_severity_note": "No CVEs resolvable — coordinate does not exist on Central. Score 0 but threat is non-zero.",
+        "exposure_note": "Direct compile dependency (+4 direct, +3 compile, +1 serialization library) = 8.",
+        "criticality_note": "Jackson is a serialization/deserialization library; any exploit code injected here would affect JSON parsing across the entire service."
+      }
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2021-44228",
+      "top_cve_cvss": 10.0,
+      "fix_version": "2.17.1",
+      "cvss_source": "scanner",
+      "criticality_source": "inferred",
+      "rationale": "Log4Shell (CVE-2021-44228, CVSS 10.0, CISA KEV) — JNDI injection allows unauthenticated remote code execution. Direct compile dependency imported by DiscountCalculator (internal service). 8 total CVEs; CVE severity capped at 10.0 after density bonus. Band floored to HIGH due to CRITICAL CVE. Immediate upgrade to 2.17.1 required; 2.26.0 available.",
+      "cve_count": 8,
+      "cve_density_bonus": 3.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 10.0 + 0.5 * 7 additional CVEs = 13.5, capped at 10.0.",
+        "exposure_note": "Direct (+4) + compile scope (+3) + logging/network library (+1) = 8.",
+        "criticality_note": "Used directly in DiscountCalculator (internal service/batch context) = 2."
+      }
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2019-14379",
+      "top_cve_cvss": 9.8,
+      "fix_version": "2.18.4",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "54 CVEs including 14 CRITICAL (CVSS 9.8) deserialization/polymorphic typing vulnerabilities. Direct compile dependency; jackson is a serialization library with network exposure. CVE severity capped at 10.0 after massive density bonus. Band floored to HIGH due to CRITICAL CVEs. Upgrade to 2.18.4 resolves all known issues.",
+      "cve_count": 54,
+      "cve_density_bonus": 26.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 9.8 + 0.5 * 53 = 36.3, capped at 10.0.",
+        "exposure_note": "Direct (+4) + compile scope (+3) + serialization library (+1) = 8.",
+        "criticality_note": "No direct imports found in source code; defaulted to 2. Criticality source: default."
+      }
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_severity": 8.3,
+      "exposure": 7.0,
+      "business_criticality": 5.0,
+      "risk_score": 7.25,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-22102",
+      "top_cve_cvss": 8.3,
+      "fix_version": "8.0.31",
+      "cvss_source": "scanner",
+      "criticality_source": "inferred",
+      "rationale": "Database connector with CVE-2023-22102 (CVSS 8.3, HIGH) — unauthenticated network attacker can compromise MySQL Connectors via SSL/TLS. Additionally carries GPL-2.0 license violation for this project. Business criticality elevated to 5 as database connectors handle PII and are payment-adjacent. Direct compile dependency.",
+      "cve_count": 1,
+      "component_notes": {
+        "cve_severity_note": "Single CVE CVSS 8.3 (HIGH); no density bonus.",
+        "exposure_note": "Direct (+4) + compile scope (+3) = 7.",
+        "criticality_note": "Database connector likely handles PII/payment data = +5."
+      }
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_severity": 8.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2026-34479",
+      "top_cve_cvss": 7.5,
+      "fix_version": "2.26.0",
+      "cvss_source": "scanner",
+      "criticality_source": "inferred",
+      "rationale": "Log4j API direct compile dependency with 2 CVEs (max CVSS 7.5 HIGH). CVE severity = 7.5 + 0.5 = 8.0 after density bonus. Should be upgraded in lockstep with log4j-core to 2.26.0. Used directly by DiscountCalculator.",
+      "cve_count": 2,
+      "cve_density_bonus": 0.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 7.5 + 0.5 * 1 additional CVE = 8.0.",
+        "exposure_note": "Direct (+4) + compile scope (+3) + logging library (+1) = 8.",
+        "criticality_note": "Used in DiscountCalculator (internal service) = 2."
+      }
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_severity": 7.6,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.3,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-2976",
+      "top_cve_cvss": 7.1,
+      "fix_version": "32.0.0-jre",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "2 CVEs: CVE-2023-2976 (CVSS 7.1, HIGH) — insecure temp file creation leaks sensitive data to local attackers; CVE-2020-8908 (CVSS 3.3, LOW). CVE severity = 7.1 + 0.5 = 7.6 with density bonus. Direct compile dependency. Upgrade to 32.0.0-jre.",
+      "cve_count": 2,
+      "cve_density_bonus": 0.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 7.1 + 0.5 * 1 additional CVE = 7.6.",
+        "exposure_note": "Direct (+4) + compile scope (+3) = 7.",
+        "criticality_note": "No direct imports found in source; defaulted to 2."
+      }
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "cve_severity": 9.0,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.4,
+      "band": "HIGH",
+      "top_cve": "CVE-2024-7254",
+      "top_cve_cvss": 7.5,
+      "fix_version": "3.25.5",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "4 HIGH CVEs (all CVSS 7.5) related to StackOverflow via maliciously crafted protobuf messages. CVE severity = 7.5 + 0.5*3 = 9.0 after density bonus. Transitive dependency via mysql-connector-java 8.0.30. Fixing mysql-connector to 8.0.31+ will resolve this transitively.",
+      "cve_count": 4,
+      "cve_density_bonus": 1.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 7.5 + 0.5 * 3 additional CVEs = 9.0.",
+        "exposure_note": "Transitive (+2) + compile scope (+3) = 5.",
+        "criticality_note": "Transitive dep; no direct usage in source = default 2."
+      }
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "cve_severity": 6.5,
+      "exposure": 5.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.15,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2018-1000873",
+      "top_cve_cvss": 6.5,
+      "fix_version": "2.9.8",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "Transitive dependency of jackson-databind 2.9.8 with 1 MEDIUM CVE (CVE-2018-1000873, CVSS 6.5) — improper input validation in polymorphic deserialization. Resolved by upgrading jackson-databind to 2.9.8+ (jackson-annotations will follow).",
+      "cve_count": 1,
+      "component_notes": {
+        "cve_severity_note": "Single CVE CVSS 6.5 (MEDIUM); no density bonus.",
+        "exposure_note": "Transitive (+2) + compile scope (+3) = 5.",
+        "criticality_note": "No direct imports; default 2."
+      }
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.15,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2025-48924",
+      "top_cve_cvss": 5.3,
+      "fix_version": "3.17.0",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "1 MEDIUM CVE (CVE-2025-48924, CVSS 5.3) — uncontrolled recursion. Direct compile dependency, also significantly outdated (3.4 vs 3.20.0). Upgrade to 3.17.0 to address CVE; 3.20.0 for latest.",
+      "cve_count": 1,
+      "component_notes": {
+        "cve_severity_note": "Single CVE CVSS 5.3 (MEDIUM); no density bonus.",
+        "exposure_note": "Direct (+4) + compile scope (+3) = 7.",
+        "criticality_note": "No direct imports; default 2."
+      }
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.15,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2021-29425",
+      "top_cve_cvss": 4.8,
+      "fix_version": "2.14.0",
+      "cvss_source": "scanner",
+      "criticality_source": "default",
+      "rationale": "2 MEDIUM CVEs: CVE-2021-29425 (path traversal, CVSS 4.8) and CVE-2024-47554 (resource consumption, CVSS 4.3). CVE severity = 4.8 + 0.5 = 5.3 with density bonus. Direct compile dependency; very outdated (2.4 vs 2.18.0). Upgrade to 2.14.0 minimum.",
+      "cve_count": 2,
+      "cve_density_bonus": 0.5,
+      "component_notes": {
+        "cve_severity_note": "Max CVSS 4.8 + 0.5 * 1 additional CVE = 5.3.",
+        "exposure_note": "Direct (+4) + compile scope (+3) = 7.",
+        "criticality_note": "No direct imports; default 2."
+      }
+    }
+  ],
+  "supply_chain_risks": [
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "type": "TYPOSQUATTING",
+      "band": "CRITICAL",
+      "rationale": "One-character typosquat of legitimate FasterXML Jackson groupId."
+    },
+    {
+      "repository_id": "internal-untrusted-mirror",
+      "repository_url": "http://insecure-mirror.example.net/maven2",
+      "type": "UNTRUSTED_HTTP_REPOSITORY",
+      "band": "HIGH",
+      "rationale": "Plain HTTP repository enables MITM artifact substitution attacks."
+    }
+  ],
+  "license_risks": [
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "license": "GPL-2.0",
+      "band": "HIGH",
+      "rationale": "GPL-2.0 copyleft in a permissive project creates distribution obligations."
+    }
+  ],
+  "summary": {
+    "critical": 1,
+    "high": 6,
+    "medium": 3,
+    "low": 0,
+    "total_cves": 75,
+    "total_supply_chain_alerts": 2,
+    "total_license_violations": 1
+  },
+  "remediation_priority": [
+    {
+      "priority": 1,
+      "action": "Remove com.fastxml.jackson.core:jackson-databind:2.9.8 from pom.xml — typosquat supply chain threat",
+      "effort": "minutes"
+    },
+    {
+      "priority": 2,
+      "action": "Remove untrusted HTTP repository http://insecure-mirror.example.net/maven2 from pom.xml",
+      "effort": "minutes"
+    },
+    {
+      "priority": 3,
+      "action": "Upgrade org.apache.logging.log4j:log4j-core + log4j-api 2.14.1 -> 2.17.1 (Log4Shell fix) or 2.26.0 (latest)",
+      "effort": "hours"
+    },
+    {
+      "priority": 4,
+      "action": "Upgrade com.fasterxml.jackson.core:jackson-databind 2.9.8 -> 2.18.4 (54 CVEs resolved)",
+      "effort": "hours"
+    },
+    {
+      "priority": 5,
+      "action": "Upgrade mysql:mysql-connector-java 8.0.30 -> 8.0.31 (CVE-2023-22102 fix); evaluate license compliance",
+      "effort": "hours"
+    },
+    {
+      "priority": 6,
+      "action": "Upgrade com.google.guava:guava 24.1.1-jre -> 32.0.0-jre (CVE-2023-2976 fix)",
+      "effort": "hours"
+    },
+    {
+      "priority": 7,
+      "action": "Upgrade commons-io 2.4 -> 2.14.0 and commons-lang3 3.4 -> 3.17.0 (CVE fixes + currency)",
+      "effort": "hours"
+    }
+  ]
+}
