@@ -60,14 +60,10 @@
             <version>30.0-jre</version>
         </dependency>
 
-        <!-- ==========================================================
-             ISSUE #1 — OUTDATED (but not necessarily CVE) DEPENDENCIES
-             Years behind current releases.
-             ========================================================== -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
