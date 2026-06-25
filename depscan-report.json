@@ -1,0 +1,505 @@
+{
+  "project": "vulnerable-invoice-service",
+  "scanned_at": "2026-06-25T06:00:00Z",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "dependency_count": 22,
+  "scan_notes": "OWASP Dependency-Check Maven plugin NVD DB update blocked (no API key; ~5 req/30s rate limit makes cold update infeasible in CI). CVE scores sourced directly from NVD REST API v2.0 concurrently. Dependency tree resolved via mvn dependency:tree with mirror redirect for HTTP repo. Typosquatted coordinate com.fastxml.jackson.core:jackson-databind:2.9.8 confirmed unresolvable on Maven Central (intentional supply-chain demo artifact).",
+  "findings": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2021-44228",
+          "cvss_score": 10.0,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Log4Shell — JNDI injection via logged messages allows unauthenticated RCE.",
+          "fix_version": "2.17.1"
+        },
+        {
+          "cve": "CVE-2021-45046",
+          "cvss_score": 9.0,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Incomplete fix for CVE-2021-44228; context lookup leads to RCE/DOS in certain configs.",
+          "fix_version": "2.17.1"
+        },
+        {
+          "cve": "CVE-2021-44832",
+          "cvss_score": 6.6,
+          "severity": "MEDIUM",
+          "cvss_source": "nvd",
+          "description": "Attacker with write access to logging config can craft JDBC Appender RCE.",
+          "fix_version": "2.17.2"
+        }
+      ],
+      "outdated": {
+        "current_version": "2.14.1",
+        "latest_version": "3.0.0-beta3",
+        "stable_fix": "2.17.2",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2021-44228",
+          "cvss_score": 10.0,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Log4Shell — API module ships vulnerable JNDI lookup code path shared with log4j-core.",
+          "fix_version": "2.17.1"
+        },
+        {
+          "cve": "CVE-2021-45046",
+          "cvss_score": 9.0,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Incomplete Log4Shell fix — also affects log4j-api.",
+          "fix_version": "2.17.1"
+        }
+      ],
+      "outdated": {
+        "current_version": "2.14.1",
+        "latest_version": "3.0.0-beta2",
+        "stable_fix": "2.17.2",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2019-16943",
+          "cvss_score": 9.8,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Polymorphic type handling deserialization gadget chain RCE via commons-dbcp2.",
+          "fix_version": "2.9.10.7"
+        },
+        {
+          "cve": "CVE-2019-14892",
+          "cvss_score": 9.8,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Unsafe deserialization via commons-configuration gadget chain.",
+          "fix_version": "2.9.10"
+        },
+        {
+          "cve": "CVE-2019-14893",
+          "cvss_score": 9.8,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Unsafe deserialization via FasterXML/xstream gadget chain.",
+          "fix_version": "2.9.10"
+        },
+        {
+          "cve": "CVE-2019-14379",
+          "cvss_score": 9.8,
+          "severity": "CRITICAL",
+          "cvss_source": "nvd",
+          "description": "Default typing enabled allows arbitrary code execution via SubTypeValidator.",
+          "fix_version": "2.9.9.2"
+        },
+        {
+          "cve": "CVE-2021-20190",
+          "cvss_score": 8.1,
+          "severity": "HIGH",
+          "cvss_source": "nvd",
+          "description": "Deserialization of untrusted data when using certain polymorphic types.",
+          "fix_version": "2.9.10.8"
+        },
+        {
+          "cve": "CVE-2020-36518",
+          "cvss_score": 7.5,
+          "severity": "HIGH",
+          "cvss_source": "nvd",
+          "description": "Stack overflow via deeply nested JSON causes denial of service.",
+          "fix_version": "2.13.2.1"
+        },
+        {
+          "cve": "CVE-2022-42003",
+          "cvss_score": 7.5,
+          "severity": "HIGH",
+          "cvss_source": "nvd",
+          "description": "Deep wrapper array nesting causes out-of-memory denial of service.",
+          "fix_version": "2.13.4"
+        },
+        {
+          "cve": "CVE-2022-42004",
+          "cvss_score": 7.5,
+          "severity": "HIGH",
+          "cvss_source": "nvd",
+          "description": "Excessive recursion in BeanDeserializerFactory causes out-of-memory DOS.",
+          "fix_version": "2.13.4"
+        },
+        {
+          "cve": "CVE-2019-12384",
+          "cvss_score": 5.9,
+          "severity": "MEDIUM",
+          "cvss_source": "nvd",
+          "description": "Server-side request forgery via JNDI when using H2 database adapter.",
+          "fix_version": "2.9.9.1"
+        }
+      ],
+      "outdated": {
+        "current_version": "2.9.8",
+        "latest_version": "2.22.0",
+        "stable_fix": "2.13.4.2",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": false,
+      "supply_chain_flag": "TYPOSQUATTED",
+      "supply_chain_note": "groupId com.fastxml.jackson.core (missing 'er') impersonates com.fasterxml.jackson.core. Coordinate does not exist on Maven Central — confirmed unresolvable. Classic typosquatting supply-chain attack vector.",
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "UNKNOWN",
+        "status": "VIOLATION"
+      }
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2022-25647",
+          "cvss_score": 7.7,
+          "severity": "HIGH",
+          "cvss_source": "nvd",
+          "description": "Deserialization of untrusted data via Gson TypeAdapterFactory.",
+          "fix_version": "30.0-jre"
+        },
+        {
+          "cve": "CVE-2018-10237",
+          "cvss_score": 5.9,
+          "severity": "MEDIUM",
+          "cvss_source": "nvd",
+          "description": "Unbounded memory allocation in AtomicDoubleArray and CompoundOrdering.",
+          "fix_version": "24.1.1-jre"
+        },
+        {
+          "cve": "CVE-2020-8908",
+          "cvss_score": 3.3,
+          "severity": "LOW",
+          "cvss_source": "nvd",
+          "description": "Temp directory created with insecure permissions on Unix systems.",
+          "fix_version": "32.0.0-jre"
+        }
+      ],
+      "outdated": {
+        "current_version": "24.1.1-jre",
+        "latest_version": "33.6.0-jre",
+        "stable_fix": "30.0-jre",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2021-29425",
+          "cvss_score": 4.8,
+          "severity": "MEDIUM",
+          "cvss_source": "nvd",
+          "description": "Path traversal in FileNameUtils.normalize() on certain inputs.",
+          "fix_version": "2.7"
+        }
+      ],
+      "outdated": {
+        "current_version": "2.4",
+        "latest_version": "2.22.0",
+        "stable_fix": "2.7",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": {
+        "current_version": "3.4",
+        "latest_version": "3.20.0",
+        "stable_fix": "3.20.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "scope": "compile",
+      "direct": true,
+      "vulnerable": true,
+      "cves": [
+        {
+          "cve": "CVE-2023-21971",
+          "cvss_score": 5.3,
+          "severity": "MEDIUM",
+          "cvss_source": "nvd",
+          "description": "Unauthenticated attacker with network access can cause MySQL Connector/J hang.",
+          "fix_version": "8.0.33"
+        }
+      ],
+      "outdated": {
+        "current_version": "8.0.30",
+        "latest_version": "8.0.33",
+        "stable_fix": "8.0.33",
+        "update_type": "patch"
+      },
+      "license": {
+        "name": "GPL-2.0",
+        "status": "VIOLATION",
+        "note": "GPL-2.0 with FOSS exception — conflicts with permissive-only project policy."
+      }
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-core:2.9.8",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": {
+        "current_version": "2.9.8",
+        "latest_version": "2.22.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": {
+        "current_version": "2.9.0",
+        "latest_version": "2.22.0",
+        "update_type": "minor"
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:1.3.9",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "BSD-3-Clause",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.checkerframework:checker-compat-qual:2.0.0",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "MIT",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.1.3",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.google.j2objc:j2objc-annotations:1.1",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "Apache-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.codehaus.mojo:animal-sniffer-annotations:1.14",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "MIT",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "scope": "compile",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "BSD-3-Clause",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter:5.10.2",
+      "scope": "test",
+      "direct": true,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": {
+        "current_version": "5.10.2",
+        "latest_version": "6.1.0",
+        "update_type": "major"
+      },
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter-api:5.10.2",
+      "scope": "test",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter-params:5.10.2",
+      "scope": "test",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.jupiter:junit-jupiter-engine:5.10.2",
+      "scope": "test",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.platform:junit-platform-commons:1.10.2",
+      "scope": "test",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    },
+    {
+      "coordinate": "org.junit.platform:junit-platform-engine:1.10.2",
+      "scope": "test",
+      "direct": false,
+      "vulnerable": false,
+      "cves": [],
+      "outdated": null,
+      "license": {
+        "name": "EPL-2.0",
+        "status": "OK"
+      }
+    }
+  ],
+  "supply_chain_flags": [
+    {
+      "type": "TYPOSQUATTED_DEPENDENCY",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "description": "groupId 'com.fastxml' is missing 'er' — impersonates com.fasterxml.jackson.core. Unresolvable on Maven Central.",
+      "severity": "CRITICAL"
+    },
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "repository_id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "description": "Plain HTTP (non-TLS) repository declared in pom.xml. Enables man-in-the-middle artifact substitution.",
+      "severity": "HIGH"
+    }
+  ],
+  "summary": {
+    "critical": 2,
+    "high": 2,
+    "medium": 4,
+    "low": 1,
+    "outdated": 7,
+    "license_violations": 1,
+    "supply_chain_flags": 2
+  }
+}
