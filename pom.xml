@@ -68,7 +68,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.14.0</version>
         </dependency>
 
         <!-- NOTE: GPL-2.0 license violation still requires human policy review (MAJOR_REVIEW).
