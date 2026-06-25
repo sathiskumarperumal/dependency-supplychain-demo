@@ -54,11 +54,10 @@
             <version>2.13.4.2</version>
         </dependency>
 
-        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1-jre</version>
+            <version>30.0-jre</version>
         </dependency>
 
         <!-- ==========================================================
