@@ -1,0 +1,34 @@
+{
+  "source_sha": "8ac6309d657579a5f945179f9279bced0831552e",
+  "scanned_at": "2026-06-25T06:45:00Z",
+  "branch": "fix/depscan-20260625-063826",
+  "tool": "grype 0.114.0 / syft 1.45.1",
+  "sbom": "target/sbom.cdx.json",
+  "verdict": "ALLOW",
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "total": 0
+  },
+  "supply_chain_checks": {
+    "typosquatted_coordinates": {
+      "count": 0,
+      "details": "com.fastxml.jackson.core removed in this PR"
+    },
+    "plaintext_http_repos": {
+      "count": 0,
+      "details": "internal-untrusted-mirror removed in this PR"
+    },
+    "unresolvable_coordinates": {
+      "count": 0
+    }
+  },
+  "notes": [
+    "All CRITICAL/HIGH CVEs resolved by version bumps in this PR",
+    "Typosquatted coordinate (com.fastxml.jackson.core) removed",
+    "Plaintext HTTP mirror (internal-untrusted-mirror) removed",
+    "Residual: mysql-connector-java GPL-2.0 license violation - tracked as MAJOR_REVIEW issue #45 (non-blocking)"
+  ]
+}
