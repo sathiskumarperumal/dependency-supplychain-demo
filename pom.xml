@@ -63,11 +63,12 @@
             <version>2.18.8</version>
         </dependency>
 
-        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
+        <!-- Upgraded: resolves CVE-2020-8908 (insecure temp dir, CVSS 3.3),
+             CVE-2023-2976 (CVSS 7.1); using -jre variant for Java 8+ -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1-jre</version>
+            <version>32.0.1-jre</version>
         </dependency>
 
         <!-- ==========================================================
