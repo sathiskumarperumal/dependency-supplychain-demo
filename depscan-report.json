@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scan_date": "2026-06-26",
+  "project": "vulnerable-invoice-service",
+  "scanner": "grype-0.114.0 + syft-1.45.1",
+  "findings": [
+    {
+      "id": "FIND-001",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-core",
+      "version": "2.14.1",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_ids": [
+        "CVE-2021-44228",
+        "CVE-2021-44832",
+        "CVE-2021-45046",
+        "CVE-2021-45105",
+        "CVE-2025-68161",
+        "CVE-2026-34477",
+        "CVE-2026-34480"
+      ],
+      "cvss_max": 10,
+      "cvss_source": "scanner",
+      "severity": "Critical",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 7,
+      "fix_versions": [
+        "2.15.0",
+        "2.16.0",
+        "2.17.0",
+        "2.17.1",
+        "2.25.3",
+        "2.25.4"
+      ],
+      "description": "7 advisories; max CVSS 10 (Critical). Key CVEs: CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105. Fix: 2.15.0."
+    },
+    {
+      "id": "FIND-002",
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_ids": [
+        "CVE-2019-12086",
+        "CVE-2019-12384",
+        "CVE-2019-12814",
+        "CVE-2019-14379",
+        "CVE-2019-14439",
+        "CVE-2019-14540",
+        "CVE-2019-14892",
+        "CVE-2019-14893",
+        "CVE-2019-16335",
+        "CVE-2019-16942",
+        "CVE-2019-16943",
+        "CVE-2019-17267",
+        "CVE-2019-17531",
+        "CVE-2019-20330",
+        "CVE-2020-10650",
+        "CVE-2020-10672",
+        "CVE-2020-10673",
+        "CVE-2020-10968",
+        "CVE-2020-10969",
+        "CVE-2020-11111",
+        "CVE-2020-11112",
+        "CVE-2020-11113",
+        "CVE-2020-11619",
+        "CVE-2020-11620",
+        "CVE-2020-14060",
+        "CVE-2020-14061",
+        "CVE-2020-14062",
+        "CVE-2020-14195",
+        "CVE-2020-24616",
+        "CVE-2020-24750",
+        "CVE-2020-25649",
+        "CVE-2020-35490",
+        "CVE-2020-35491",
+        "CVE-2020-35728",
+        "CVE-2020-36179",
+        "CVE-2020-36180",
+        "CVE-2020-36181",
+        "CVE-2020-36182",
+        "CVE-2020-36183",
+        "CVE-2020-36184",
+        "CVE-2020-36185",
+        "CVE-2020-36186",
+        "CVE-2020-36187",
+        "CVE-2020-36188",
+        "CVE-2020-36189",
+        "CVE-2020-36518",
+        "CVE-2020-8840",
+        "CVE-2020-9546",
+        "CVE-2020-9547",
+        "CVE-2020-9548",
+        "CVE-2021-20190",
+        "CVE-2022-42003",
+        "CVE-2022-42004"
+      ],
+      "cvss_max": 9.8,
+      "cvss_source": "scanner",
+      "severity": "Critical",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 55,
+      "fix_versions": [
+        "2.12.6.1",
+        "2.12.7.1",
+        "2.18.8",
+        "2.18.9",
+        "2.9.10",
+        "2.9.10.1",
+        "2.9.10.2",
+        "2.9.10.3",
+        "2.9.10.4",
+        "2.9.10.5",
+        "2.9.10.6",
+        "2.9.10.7",
+        "2.9.10.8",
+        "2.9.9",
+        "2.9.9.1",
+        "2.9.9.2"
+      ],
+      "description": "55 advisories; max CVSS 9.8 (Critical). Key CVEs: CVE-2019-12086, CVE-2019-12384, CVE-2019-12814, CVE-2019-14379. Fix: 2.12.6.1."
+    },
+    {
+      "id": "FIND-003",
+      "groupId": "mysql",
+      "artifactId": "mysql-connector-java",
+      "version": "8.0.30",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_ids": [
+        "CVE-2023-22102"
+      ],
+      "cvss_max": 8.9,
+      "cvss_source": "scanner",
+      "severity": "High",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 1,
+      "fix_versions": [],
+      "description": "1 advisories; max CVSS 8.9 (High). Key CVEs: CVE-2023-22102. Fix: no upstream fix available."
+    },
+    {
+      "id": "FIND-004",
+      "groupId": "commons-io",
+      "artifactId": "commons-io",
+      "version": "2.4",
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_ids": [
+        "CVE-2021-29425",
+        "CVE-2024-47554"
+      ],
+      "cvss_max": 8.7,
+      "cvss_source": "scanner",
+      "severity": "High",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 2,
+      "fix_versions": [
+        "2.14.0",
+        "2.7"
+      ],
+      "description": "2 advisories; max CVSS 8.7 (High). Key CVEs: CVE-2021-29425, CVE-2024-47554. Fix: 2.14.0."
+    },
+    {
+      "id": "FIND-005",
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.4",
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_ids": [
+        "CVE-2025-48924"
+      ],
+      "cvss_max": 6.5,
+      "cvss_source": "scanner",
+      "severity": "Medium",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 1,
+      "fix_versions": [
+        "3.18.0"
+      ],
+      "description": "1 advisories; max CVSS 6.5 (Medium). Key CVEs: CVE-2025-48924. Fix: 3.18.0."
+    },
+    {
+      "id": "FIND-006",
+      "groupId": "com.google.guava",
+      "artifactId": "guava",
+      "version": "24.1.1-jre",
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_ids": [
+        "CVE-2020-8908",
+        "CVE-2023-2976"
+      ],
+      "cvss_max": 5.5,
+      "cvss_source": "scanner",
+      "severity": "Medium",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 2,
+      "fix_versions": [
+        "32.0.0-android"
+      ],
+      "description": "2 advisories; max CVSS 5.5 (Medium). Key CVEs: CVE-2020-8908, CVE-2023-2976. Fix: 32.0.0-android."
+    },
+    {
+      "id": "FIND-007",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-api",
+      "version": "2.14.1",
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_ids": [
+        "CVE-2021-44228",
+        "CVE-2021-45046"
+      ],
+      "cvss_max": 10.0,
+      "cvss_source": "scanner",
+      "severity": "Critical",
+      "issue_type": "CVE",
+      "num_vulnerabilities": 2,
+      "fix_versions": [
+        "2.17.1"
+      ],
+      "description": "Companion to log4j-core; shares Log4Shell vulnerability family (CVE-2021-44228 CVSS 10.0). Upgrade pair together to 2.17.1+."
+    },
+    {
+      "id": "FIND-008",
+      "groupId": "mysql",
+      "artifactId": "mysql-connector-java",
+      "version": "8.0.30",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_ids": [
+        "CVE-2023-22102"
+      ],
+      "cvss_max": 8.9,
+      "cvss_source": "scanner",
+      "severity": "High",
+      "issue_type": "LICENSE",
+      "license": "GPL-2.0",
+      "num_vulnerabilities": 0,
+      "fix_versions": [],
+      "description": "GPL-2.0 license violates project permissive-only policy. Switch to com.mysql:mysql-connector-j with commercial exception or MariaDB connector (LGPL)."
+    },
+    {
+      "id": "FIND-009",
+      "groupId": "com.fastxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "cve_ids": [],
+      "cvss_max": 0.0,
+      "cvss_source": "scanner",
+      "severity": "High",
+      "issue_type": "TYPOSQUATTED",
+      "num_vulnerabilities": 0,
+      "fix_versions": [],
+      "description": "groupId \"com.fastxml.jackson.core\" is a typosquat of \"com.fasterxml.jackson.core\" (missing \"er\"). Does not exist on Maven Central; blocked by Maven 3.8 HTTP blocker. Remove immediately \u2014 potential supply-chain malware vector."
+    },
+    {
+      "id": "FIND-010",
+      "groupId": "N/A",
+      "artifactId": "N/A",
+      "version": "N/A",
+      "coordinate": "repository:internal-untrusted-mirror",
+      "cve_ids": [],
+      "cvss_max": 0.0,
+      "cvss_source": "scanner",
+      "severity": "High",
+      "issue_type": "UNTRUSTED_REPO",
+      "repository_url": "http://insecure-mirror.example.net/maven2",
+      "num_vulnerabilities": 0,
+      "fix_versions": [],
+      "description": "Repository \"internal-untrusted-mirror\" declared at http://insecure-mirror.example.net/maven2 (plain HTTP, unverified host). Susceptible to MITM artifact substitution. Remove or replace with authenticated HTTPS endpoint."
+    }
+  ],
+  "summary": {
+    "critical": 3,
+    "high": 5,
+    "medium": 2,
+    "low": 0,
+    "total": 10
+  }
+}
