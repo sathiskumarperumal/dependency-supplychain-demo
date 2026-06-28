@@ -1,0 +1,144 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scored_at": "2026-06-28T06:19:00Z",
+  "ranked": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2021-44228",
+      "top_cve_cvss": 10.0,
+      "cve_count": 8,
+      "fix_version": "2.17.1",
+      "rationale": "Used in DiscountCalculator (internal service layer) for logging; top CVE CVE-2021-44228 CVSS 10.0 (CRITICAL); 8 total CVEs."
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "cve_severity": 10.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 7.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2019-14379",
+      "top_cve_cvss": 9.8,
+      "cve_count": 54,
+      "fix_version": "2.17.1",
+      "rationale": "JSON deserialization library used in invoice service \u2014 internal API layer; top CVE CVE-2019-14379 CVSS 9.8 (CRITICAL); 54 total CVEs."
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve_severity": 8.3,
+      "exposure": 8.0,
+      "business_criticality": 5.0,
+      "risk_score": 7.6,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-22102",
+      "top_cve_cvss": 8.3,
+      "cve_count": 1,
+      "fix_version": "8.0.33",
+      "rationale": "Database connector for invoice service \u2014 handles financial/PII data; top CVE CVE-2023-22102 CVSS 8.3 (HIGH); 1 total CVEs."
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "cve_severity": 8.0,
+      "exposure": 8.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.8,
+      "band": "HIGH",
+      "top_cve": "CVE-2026-34479",
+      "top_cve_cvss": 7.5,
+      "cve_count": 2,
+      "fix_version": "2.24.3",
+      "rationale": "Logging API used directly in DiscountCalculator \u2014 internal service; top CVE CVE-2026-34479 CVSS 7.5 (HIGH); 2 total CVEs."
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-java:3.19.4",
+      "cve_severity": 9.0,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.7,
+      "band": "HIGH",
+      "top_cve": "CVE-2024-7254",
+      "top_cve_cvss": 7.5,
+      "cve_count": 4,
+      "fix_version": "3.25.5",
+      "rationale": "Transitive via mysql-connector \u2014 serialization protocol library; top CVE CVE-2024-7254 CVSS 7.5 (HIGH); 4 total CVEs."
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "cve_severity": 7.6,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 6.3,
+      "band": "HIGH",
+      "top_cve": "CVE-2023-2976",
+      "top_cve_cvss": 7.1,
+      "cve_count": 2,
+      "fix_version": "32.0.0-jre",
+      "rationale": "General utility library \u2014 no direct usage in src found; default internal service; top CVE CVE-2023-2976 CVSS 7.1 (HIGH); 2 total CVEs."
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-annotations:2.9.0",
+      "cve_severity": 6.5,
+      "exposure": 6.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.5,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2018-1000873",
+      "top_cve_cvss": 6.5,
+      "cve_count": 1,
+      "fix_version": "2.17.1",
+      "rationale": "Transitive jackson annotation library \u2014 internal service; top CVE CVE-2018-1000873 CVSS 6.5 (MEDIUM); 1 total CVEs."
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.2,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2021-29425",
+      "top_cve_cvss": 4.8,
+      "cve_count": 2,
+      "fix_version": "2.14.0",
+      "rationale": "File I/O utility \u2014 general internal service usage; top CVE CVE-2021-29425 CVSS 4.8 (MEDIUM); 2 total CVEs."
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "cve_severity": 5.3,
+      "exposure": 7.0,
+      "business_criticality": 2.0,
+      "risk_score": 5.2,
+      "band": "MEDIUM",
+      "top_cve": "CVE-2025-48924",
+      "top_cve_cvss": 5.3,
+      "cve_count": 1,
+      "fix_version": "3.14.0",
+      "rationale": "String utility library \u2014 general internal service usage; top CVE CVE-2025-48924 CVSS 5.3 (MEDIUM); 1 total CVEs."
+    }
+  ],
+  "supply_chain_alerts": [
+    {
+      "type": "TYPOSQUATTED_DEPENDENCY",
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "severity": "CRITICAL",
+      "detail": "groupId 'com.fastxml' impersonates 'com.fasterxml.jackson.core'. Artifact unresolvable \u2014 possible supply-chain attack."
+    },
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "severity": "HIGH",
+      "detail": "Plain HTTP repository declared in pom.xml. Blocked by Maven's HTTP mirror blocker but poses a supply-chain risk if unblocked."
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "high": 6,
+    "medium": 3,
+    "low": 0
+  }
+}
