@@ -1,0 +1,428 @@
+{
+  "schema_version": "1.0",
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "scan_date": "2026-06-29T06:47:00Z",
+  "project": "vulnerable-invoice-service",
+  "artifact_id": "com.demo.supplychain:vulnerable-invoice-service:1.0.0",
+  "scanner": {
+    "sbom_tool": "syft 1.46.0",
+    "vuln_scanner": "grype 0.115.0",
+    "sbom_format": "CycloneDX 1.7"
+  },
+  "repository_issues": [
+    {
+      "type": "UNTRUSTED_REPOSITORY",
+      "id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "severity": "HIGH",
+      "description": "Repository served over plain HTTP from an unverified host. Maven artifacts can be replaced via MITM."
+    }
+  ],
+  "findings": [
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-core",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 7,
+      "max_cvss": 10,
+      "top_cve": "CVE-2021-44228",
+      "cves": [
+        {
+          "id": "CVE-2021-44228",
+          "severity": "CRITICAL",
+          "cvss": 10,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.15.0"
+          ],
+          "description": "Remote code injection in Log4j"
+        },
+        {
+          "id": "CVE-2021-45046",
+          "severity": "CRITICAL",
+          "cvss": 9,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.16.0"
+          ],
+          "description": "Incomplete fix for Apache Log4j vulnerability"
+        },
+        {
+          "id": "CVE-2021-45105",
+          "severity": "HIGH",
+          "cvss": 8.6,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.17.0"
+          ],
+          "description": "Apache Log4j2 vulnerable to Improper Input Validation and Uncontrolled Recursion"
+        },
+        {
+          "id": "CVE-2021-44832",
+          "severity": "MEDIUM",
+          "cvss": 6.6,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.17.1"
+          ],
+          "description": "Improper Input Validation and Injection in Apache Log4j2"
+        },
+        {
+          "id": "CVE-2026-34480",
+          "severity": "MEDIUM",
+          "cvss": 7.5,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.25.4"
+          ],
+          "description": "Apache Log4j Core: Silent log event loss in XmlLayout due to unescaped XML 1.0 forbidden characters"
+        },
+        {
+          "id": "CVE-2025-68161",
+          "severity": "MEDIUM",
+          "cvss": 4.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.25.3"
+          ],
+          "description": "Apache Log4j does not verify the TLS hostname in its Socket Appender"
+        },
+        {
+          "id": "CVE-2026-34477",
+          "severity": "MEDIUM",
+          "cvss": 5.9,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.25.4"
+          ],
+          "description": "Apache Log4j Core: `verifyHostName` attribute silently ignored in TLS configuration"
+        }
+      ],
+      "fix_version": "2.17.1",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "groupId": "com.fasterxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 55,
+      "max_cvss": 9.8,
+      "top_cve": "CVE-2020-8840",
+      "cves": [
+        {
+          "id": "CVE-2020-8840",
+          "severity": "CRITICAL",
+          "cvss": 9.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.3"
+          ],
+          "description": "Deserialization of Untrusted Data in jackson-databind"
+        },
+        {
+          "id": "CVE-2019-12384",
+          "severity": "MEDIUM",
+          "cvss": 5.9,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.9.1"
+          ],
+          "description": "Deserialization of Untrusted Data in FasterXML jackson-databind"
+        },
+        {
+          "id": "CVE-2020-9547",
+          "severity": "CRITICAL",
+          "cvss": 9.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.4"
+          ],
+          "description": "jackson-databind mishandles the interaction between serialization gadgets and typing"
+        },
+        {
+          "id": "CVE-2020-9548",
+          "severity": "CRITICAL",
+          "cvss": 9.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.4"
+          ],
+          "description": "jackson-databind mishandles the interaction between serialization gadgets and typing"
+        },
+        {
+          "id": "CVE-2019-12086",
+          "severity": "HIGH",
+          "cvss": 7.5,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.9"
+          ],
+          "description": "Information exposure in FasterXML jackson-databind"
+        },
+        {
+          "id": "CVE-2020-36179",
+          "severity": "HIGH",
+          "cvss": 8.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.8"
+          ],
+          "description": "Unsafe Deserialization in jackson-databind"
+        },
+        {
+          "id": "CVE-2020-25649",
+          "severity": "HIGH",
+          "cvss": 7.5,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.7"
+          ],
+          "description": "XML External Entity (XXE) Injection in Jackson Databind"
+        },
+        {
+          "id": "CVE-2019-14540",
+          "severity": "CRITICAL",
+          "cvss": 9.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10"
+          ],
+          "description": "Polymorphic Typing issue in FasterXML jackson-databind"
+        },
+        {
+          "id": "CVE-2020-35728",
+          "severity": "HIGH",
+          "cvss": 8.1,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.8"
+          ],
+          "description": "Serialization gadget exploit in jackson-databind"
+        },
+        {
+          "id": "CVE-2020-36188",
+          "severity": "HIGH",
+          "cvss": 8.1,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.9.10.8"
+          ],
+          "description": "Unsafe Deserialization in jackson-databind"
+        }
+      ],
+      "fix_version": "2.13.4.2",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "commons-io:commons-io:2.4",
+      "groupId": "commons-io",
+      "artifactId": "commons-io",
+      "version": "2.4",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 2,
+      "max_cvss": 7.5,
+      "top_cve": "CVE-2024-47554",
+      "cves": [
+        {
+          "id": "CVE-2021-29425",
+          "severity": "MEDIUM",
+          "cvss": 4.8,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.7"
+          ],
+          "description": "Path Traversal and Improper Input Validation in Apache Commons IO"
+        },
+        {
+          "id": "CVE-2024-47554",
+          "severity": "HIGH",
+          "cvss": 7.5,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "2.14.0"
+          ],
+          "description": "Apache Commons IO: Possible denial of service attack on untrusted input to XmlStreamReader"
+        }
+      ],
+      "fix_version": "2.15.1",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "org.apache.commons:commons-lang3:3.4",
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.4",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 1,
+      "max_cvss": 6.5,
+      "top_cve": "CVE-2025-48924",
+      "cves": [
+        {
+          "id": "CVE-2025-48924",
+          "severity": "MEDIUM",
+          "cvss": 6.5,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "3.18.0"
+          ],
+          "description": "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs"
+        }
+      ],
+      "fix_version": "3.14.0",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "groupId": "mysql",
+      "artifactId": "mysql-connector-java",
+      "version": "8.0.30",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 1,
+      "max_cvss": 8.3,
+      "top_cve": "CVE-2023-22102",
+      "cves": [
+        {
+          "id": "CVE-2023-22102",
+          "severity": "HIGH",
+          "cvss": 8.3,
+          "cvss_source": "scanner",
+          "fix_versions": [],
+          "description": "MySQL Connectors takeover vulnerability"
+        }
+      ],
+      "fix_version": "8.0.33",
+      "flags": [
+        "LICENSE_VIOLATION_GPL2"
+      ],
+      "outdated": false,
+      "supply_chain_risk": [
+        "LICENSE_VIOLATION_GPL2"
+      ]
+    },
+    {
+      "coordinate": "com.google.guava:guava:24.1.1-jre",
+      "groupId": "com.google.guava",
+      "artifactId": "guava",
+      "version": "24.1.1-jre",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 2,
+      "max_cvss": 7.1,
+      "top_cve": "CVE-2023-2976",
+      "cves": [
+        {
+          "id": "CVE-2020-8908",
+          "severity": "LOW",
+          "cvss": 3.3,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "32.0.0-android"
+          ],
+          "description": "Information Disclosure in Guava"
+        },
+        {
+          "id": "CVE-2023-2976",
+          "severity": "MEDIUM",
+          "cvss": 7.1,
+          "cvss_source": "scanner",
+          "fix_versions": [
+            "32.0.0-android"
+          ],
+          "description": "Guava vulnerable to insecure use of temporary directory"
+        }
+      ],
+      "fix_version": "32.0.0-jre",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "groupId": "org.apache.logging.log4j",
+      "artifactId": "log4j-api",
+      "version": "2.14.1",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 2,
+      "max_cvss": 10.0,
+      "top_cve": "CVE-2021-44228",
+      "cves": [
+        {
+          "id": "CVE-2021-44228",
+          "severity": "CRITICAL",
+          "cvss": 10.0,
+          "cvss_source": "nvd",
+          "fix_versions": [
+            "2.17.1"
+          ],
+          "description": "Apache Log4j2 JNDI lookup RCE (Log4Shell). API jar is co-vulnerable per Apache advisory."
+        },
+        {
+          "id": "CVE-2021-45046",
+          "severity": "CRITICAL",
+          "cvss": 9.0,
+          "cvss_source": "nvd",
+          "fix_versions": [
+            "2.16.0"
+          ],
+          "description": "Incomplete fix for CVE-2021-44228 in certain non-default configurations."
+        }
+      ],
+      "fix_version": "2.17.1",
+      "flags": [],
+      "outdated": false
+    },
+    {
+      "coordinate": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "groupId": "com.fastxml.jackson.core",
+      "artifactId": "jackson-databind",
+      "version": "2.9.8",
+      "scope": "compile",
+      "direct": true,
+      "depth": 1,
+      "cve_count": 0,
+      "max_cvss": 0.0,
+      "top_cve": null,
+      "cves": [],
+      "fix_version": null,
+      "flags": [
+        "TYPOSQUATTED",
+        "DOES_NOT_EXIST_ON_CENTRAL"
+      ],
+      "outdated": false,
+      "supply_chain_risk": [
+        "TYPOSQUATTED",
+        "COORDINATE_DOES_NOT_EXIST_ON_CENTRAL"
+      ]
+    }
+  ],
+  "summary": {
+    "total_dependencies_scanned": 8,
+    "total_cves": 70,
+    "critical_cves": 16,
+    "high_cves": 42,
+    "medium_cves": 11,
+    "low_cves": 1,
+    "typosquatted": 1,
+    "license_violations": 1
+  }
+}
