@@ -1,0 +1,181 @@
+{
+  "source_sha": "61ed8c3140d76e3a19a88954e834d39c9f7635fb",
+  "generated_at": "2026-06-30T00:00:00Z",
+  "project": "com.demo.supplychain:vulnerable-invoice-service:1.0.0",
+  "risk_bands": {
+    "CRITICAL": 1,
+    "HIGH": 6,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "ranked_findings": [
+    {
+      "rank": 1,
+      "dependency": "com.fastxml.jackson.core:jackson-databind:2.9.8",
+      "risk_score": 2.8,
+      "risk_band": "CRITICAL",
+      "cve_ids": [],
+      "cvss_max": 0.0,
+      "cve_severity_score": 0.0,
+      "exposure_score": 8,
+      "business_criticality_score": 2,
+      "fix_version": null,
+      "remediation_action": "REMOVE",
+      "rationale": "TYPOSQUATTED package: 'com.fastxml.jackson.core' impersonates the legitimate 'com.fasterxml.jackson.core' (missing 'er' in groupId). Coordinate absent from Maven Central \u2014 confirmed supply-chain attack vector. Remove immediately; may contain malicious code.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": "TYPOSQUAT"
+    },
+    {
+      "rank": 2,
+      "dependency": "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+      "risk_score": 7.8,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2019-14379",
+        "CVE-2019-14540",
+        "CVE-2019-17531",
+        "CVE-2019-16942",
+        "CVE-2019-16943",
+        "CVE-2019-17267",
+        "CVE-2019-16335",
+        "CVE-2019-20330",
+        "CVE-2020-8840",
+        "CVE-2020-9546",
+        "CVE-2020-9547",
+        "CVE-2020-9548",
+        "CVE-2020-10673",
+        "CVE-2020-10672",
+        "CVE-2020-11111",
+        "CVE-2020-11112",
+        "CVE-2020-11113",
+        "CVE-2020-36518",
+        "CVE-2022-42003",
+        "CVE-2022-42004",
+        "CVE-2020-25649"
+      ],
+      "cvss_max": 9.8,
+      "cve_severity_score": 10.0,
+      "exposure_score": 8,
+      "business_criticality_score": 2,
+      "fix_version": "2.18.8",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 21 CVE(s); max CVSS 9.8. Top CVE: CVE-2019-14379. Recommended fix: 2.18.8.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 3,
+      "dependency": "org.apache.logging.log4j:log4j-core:2.14.1",
+      "risk_score": 7.5,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2021-44228",
+        "CVE-2021-45046",
+        "CVE-2021-45105",
+        "CVE-2021-44832"
+      ],
+      "cvss_max": 10.0,
+      "cve_severity_score": 10.0,
+      "exposure_score": 7,
+      "business_criticality_score": 2,
+      "fix_version": "2.17.1",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 4 CVE(s); max CVSS 10.0. Top CVE: CVE-2021-44228. Recommended fix: 2.17.1.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 4,
+      "dependency": "org.apache.logging.log4j:log4j-api:2.14.1",
+      "risk_score": 7.5,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2021-44228"
+      ],
+      "cvss_max": 10.0,
+      "cve_severity_score": 10.0,
+      "exposure_score": 7,
+      "business_criticality_score": 2,
+      "fix_version": "2.17.1",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 1 CVE(s); max CVSS 10.0. Top CVE: CVE-2021-44228. Recommended fix: 2.17.1.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 5,
+      "dependency": "mysql:mysql-connector-java:8.0.30",
+      "risk_score": 7.2,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2023-22102"
+      ],
+      "cvss_max": 8.9,
+      "cve_severity_score": 8.9,
+      "exposure_score": 8,
+      "business_criticality_score": 2,
+      "fix_version": "9.2.0",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 1 CVE(s); max CVSS 8.9. Top CVE: CVE-2023-22102. Recommended fix: 9.2.0.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 6,
+      "dependency": "commons-io:commons-io:2.4",
+      "risk_score": 7.1,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2024-47554",
+        "CVE-2021-29425"
+      ],
+      "cvss_max": 8.7,
+      "cve_severity_score": 9.2,
+      "exposure_score": 7,
+      "business_criticality_score": 2,
+      "fix_version": "2.17.0",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 2 CVE(s); max CVSS 8.7. Top CVE: CVE-2024-47554. Recommended fix: 2.17.0.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 7,
+      "dependency": "com.google.guava:guava:24.1.1-jre",
+      "risk_score": 6.0,
+      "risk_band": "HIGH",
+      "cve_ids": [
+        "CVE-2023-2976",
+        "CVE-2020-8908",
+        "CVE-2018-10237"
+      ],
+      "cvss_max": 5.9,
+      "cve_severity_score": 6.9,
+      "exposure_score": 7,
+      "business_criticality_score": 2,
+      "fix_version": "32.0.0-jre",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 3 CVE(s); max CVSS 5.9. Top CVE: CVE-2018-10237. Recommended fix: 32.0.0-jre.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    },
+    {
+      "rank": 8,
+      "dependency": "org.apache.commons:commons-lang3:3.4",
+      "risk_score": 5.8,
+      "risk_band": "MEDIUM",
+      "cve_ids": [
+        "CVE-2025-48924"
+      ],
+      "cvss_max": 6.5,
+      "cve_severity_score": 6.5,
+      "exposure_score": 7,
+      "business_criticality_score": 2,
+      "fix_version": "3.18.0",
+      "remediation_action": "UPGRADE",
+      "rationale": "Direct compile dep; 1 CVE(s); max CVSS 6.5. Top CVE: CVE-2025-48924. Recommended fix: 3.18.0.",
+      "cvss_source": "scanner",
+      "supply_chain_alert": null
+    }
+  ]
+}
