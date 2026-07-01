@@ -1,0 +1,58 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "4e63c02bc43b60999c21af5b35639e40d1ce6faf",
+  "scanned_at": "2026-07-01",
+  "sbom": "target/sbom.cdx.json",
+  "grype_report": "target/grype-report.json",
+  "verdict": "BLOCK",
+  "blocking_findings": [
+    {
+      "type": "grype_high_with_fix",
+      "coordinate": "commons-io:commons-io:2.4",
+      "vulnerability": "CVE-2024-47554 / GHSA-78wr-2p64-hpwj",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "fix_version": "2.14.0",
+      "fix_state": "fixed",
+      "detail": "Apache Commons IO XmlStreamReader uncontrolled resource consumption (DoS). Grype/GHSA rates this HIGH (CVSS 7.5) with fix 2.14.0 available. Not touched by this PR (still pinned at 2.4). NVD-sourced Stage 1 report scored the same CVE MEDIUM (4.3) using a different CVSS vector variant (UI:R vs UI:N) -- Grype/GHSA is the authoritative source for this check per skill policy."
+    },
+    {
+      "type": "license_violation",
+      "coordinate": "mysql:mysql-connector-java:8.0.33",
+      "license": "GPL-2.0-with-classpath-exception (FOSS exception)",
+      "detail": "Denied/flagged license under project policy. Pre-existing on main (was already GPL-2.0 at 8.0.30); the version bump to 8.0.33 in this PR resolves CVE-2023-22102 for the CVE check but does not change the license, which the PR body itself calls out as an open policy decision. Per audit skill Step 6, a denied/violation license is an unconditional BLOCK condition regardless of who introduced the dependency."
+    },
+    {
+      "type": "untrusted_source",
+      "coordinate": "pom.xml <repositories> declaration",
+      "repository_id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "detail": "Non-allowlisted, plain-HTTP repository declared in pom.xml (pre-existing seeded 'ISSUE #5' content, unchanged by this PR). No artifact in the current resolved dependency tree actually resolves from it (dependency:tree confirms all artifacts resolve from Maven Central) -- flagged here as a standing repository-configuration risk per skill Step 4, not as a resolved-artifact provenance violation. Recommend removing the repository block entirely as a follow-up hardening action."
+    }
+  ],
+  "warnings": [
+    {
+      "type": "grype_high_no_fix",
+      "coordinate": "mysql:mysql-connector-java:8.0.33",
+      "vulnerability": "CVE-2023-22102 / GHSA-m6vm-37g8-gqvh",
+      "severity": "HIGH",
+      "cvss": 8.3,
+      "fix_state": "not-fixed",
+      "detail": "GHSA advisory for the legacy 'mysql:mysql-connector-java' GAV lists the vulnerable range as <=8.0.33 with no fix recorded under that coordinate -- upstream's actual remediation requires migrating to the relocated 'com.mysql:mysql-connector-j' artifact id (Maven build already emits a relocation warning for this). Not a hard BLOCK line under skill policy (no available fix under the current coordinate), but should be tracked -- see tracking issue."
+    },
+    {
+      "type": "grype_medium",
+      "count": 2,
+      "detail": "2 Grype MEDIUM findings present in target/grype-report.json; non-blocking per skill policy."
+    }
+  ],
+  "counts": {
+    "grype_critical": 0,
+    "grype_high": 2,
+    "grype_medium": 2,
+    "grype_low": 0,
+    "typosquat": 0,
+    "untrusted": 1,
+    "license_violations": 1
+  }
+}

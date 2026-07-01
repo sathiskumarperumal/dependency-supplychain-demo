@@ -43,36 +43,48 @@
         </repository>
     </repositories>
 
+    <!-- protobuf-java is pulled in transitively; pin it here to the CVE-2024-7254 fix
+         version (3.21.7) without adding a new top-level dependency. -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.21.7</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <!-- ==========================================================
              ISSUE #2 — KNOWN CVE / VULNERABLE DEPENDENCIES
              ========================================================== -->
 
-        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046 -->
+        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046 | fixed: bumped to 2.26.0 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>2.26.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <version>2.26.0</version>
         </dependency>
 
-        <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, ...) -->
+        <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, CVE-2019-14379, ...) | fixed: bumped to 2.22.0 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>2.22.0</version>
         </dependency>
 
-        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
+        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc), CVE-2023-2976 | fixed: bumped to 32.0.1-jre -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1-jre</version>
+            <version>32.0.1-jre</version>
         </dependency>
 
         <!-- ==========================================================
@@ -97,20 +109,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
-        </dependency>
-
-        <!-- ==========================================================
-             ISSUE #4 — TYPOSQUATTED DEPENDENCY
-             groupId is "com.fastxml" (missing the "er") impersonating the
-             real "com.fasterxml.jackson.core". This coordinate does NOT
-             exist on Central and will fail to resolve — that is the point.
-             Comment it out before running the coverage build (Issue #6).
-             ========================================================== -->
-        <dependency>
-            <groupId>com.fastxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>8.0.33</version>
         </dependency>
 
         <!-- Test scope -->
