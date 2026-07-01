@@ -43,6 +43,18 @@
         </repository>
     </repositories>
 
+    <!-- protobuf-java is pulled in transitively; pin it here to the CVE-2024-7254 fix
+         version (3.21.7) without adding a new top-level dependency. -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.21.7</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <!-- ==========================================================
