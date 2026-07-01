@@ -6,6 +6,7 @@ Professional PDF reports produced by the Dependency & Supply-Chain pipeline. Rev
 |---|---|---|
 | **CVE-Report.pdf** | Stage 1 — Dependency scan | Known-vulnerable dependencies, CVE list with CVSS/severity, fix versions, supply-chain alerts |
 | **Risk-Scoring-Report.pdf** | Stage 2 — Risk scoring | Ranked remediation backlog (risk = 0.5·CVE + 0.3·exposure + 0.2·criticality), priorities |
+| **Remediation-Report.md** | Stage 3 — Auto-remediation | Consolidated fix table (old→new versions, CVEs cleared), changelog highlights, build/re-scan verification |
 | **Audit-Trail-Report.pdf** | Stage 5 — Audit trail | Health score + grade, remediation activity, gate verdict, projected post-fix score |
 
 Each `.pdf` has a matching `.md` (diff-friendly source); the machine-readable `*.json` reports live
