@@ -82,15 +82,17 @@
              ISSUE #1 — OUTDATED (but not necessarily CVE) DEPENDENCIES
              Years behind current releases.
              ========================================================== -->
+        <!-- CVE-2024-47554 | fixed: bumped to 2.14.0 -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.14.0</version>
         </dependency>
+        <!-- CVE-2025-48924 | fixed: bumped to 3.18.0 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.18.0</version>
         </dependency>
 
         <!-- ==========================================================
