@@ -1,38 +1,66 @@
 # Risk Scoring Report
 
-Project: **vulnerable-invoice-service** · Stage 2 (NVD CVSS-weighted) · Generated 2026-06-10 · Model: `0.5·CVE + 0.3·exposure + 0.2·criticality`
+Project: **vulnerable-invoice-service** · Stage 2 (NVD CVSS-weighted) · Generated 2026-07-03 · Model: `0.5·CVE_severity + 0.3·exposure + 0.2·business_criticality`
+
+> **Out-of-band alert (not weighted below):** `com.fastxml.jackson.core:jackson-databind:2.9.8` is a
+> **typosquat** of `com.fasterxml.jackson.core:jackson-databind` — it never resolves, so it carries no
+> CVSS/usage signal to weight. Treat as **CRITICAL** and remove immediately; do not wait for a score.
 
 ## Ranked remediation backlog
 
 | # | Coordinate | Ver | Band | Risk | Top CVE / issue | Fix |
 |---|---|---|---|---|---|---|
-| 1 | log4j-core | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (10.0) | 2.17.1 |
-| 2 | log4j-api | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (10.0) | 2.17.1 |
-| 3 | jackson-databind | 2.9.8 | <span class="badge high">HIGH</span> | 7.8 | CVE-2019-14379 (9.8) | 2.13.4.2 |
-| 4 | com.fastxml…:jackson-databind | 2.9.8 | <span class="badge crit">CRITICAL</span> | — | Typosquat (REMOVE) | remove |
-| 5 | guava | 24.1.1-jre | <span class="badge high">HIGH</span> | 6.0 | CVE-2023-2976 | 32.0.0-jre |
-| 6 | mysql-connector-java | 8.0.30 | <span class="badge med">MEDIUM</span> | 3.1 | GPL-2.0 license | 8.0.33 |
-| 7 | commons-io | 2.4 | <span class="badge low">LOW</span> | 2.5 | outdated | 2.18.0 |
-| 8 | commons-lang3 | 3.4 | <span class="badge low">LOW</span> | 2.5 | outdated | 3.17.0 |
-| 9 | junit-jupiter | 5.10.2 | <span class="badge low">LOW</span> | 1.7 | test-scope, outdated | 5.13.0 |
+| 1 | com.fasterxml.jackson.core:jackson-databind | 2.9.8 | <span class="badge high">HIGH</span> | 7.8 | CVE-2020-9548 (9.8), 56 CVEs total | 2.21.5 |
+| 2 | org.apache.logging.log4j:log4j-core | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 — Log4Shell (10.0) | 2.15.0 (2.25.4 clears all) |
+| 3 | org.apache.logging.log4j:log4j-api | 2.14.1 | <span class="badge high">HIGH</span> | 7.8 | CVE-2021-44228 (shared CPE match) | 2.15.0 (2.25.4 clears all) |
+| 4 | com.google.protobuf:protobuf-java (transitive) | 3.19.4 | <span class="badge high">HIGH</span> | 6.7 | CVE-2022-3509 (7.5) | 3.25.5 |
+| 5 | com.google.guava:guava | 24.1.1-jre | <span class="badge med">MEDIUM</span> | 5.5 | CVE-2023-2976 (5.5) | 32.0.0 |
+| 6 | org.apache.commons:commons-lang3 | 3.4 | <span class="badge med">MEDIUM</span> | 5.2 | CVE-2025-48924 (5.3) | 3.18.0 |
+| 7 | commons-io:commons-io | 2.4 | <span class="badge med">MEDIUM</span> | 4.7 | CVE-2024-47554 (4.3) | 2.14.0 |
+| 8 | mysql:mysql-connector-java | 8.0.30 | <span class="badge low">LOW</span> | 2.8 | No CVE; **GPL-2.0 license violation** | 8.0.33 (license issue persists — swap driver) |
+| 9 | com.fasterxml.jackson.core:jackson-core (transitive) | 2.9.8 | <span class="badge low">LOW</span> | 2.2 | none | — |
+| 10 | com.fasterxml.jackson.core:jackson-annotations (transitive) | 2.9.0 | <span class="badge low">LOW</span> | 2.2 | none | — |
+| 11 | org.junit.jupiter:junit-jupiter (test) | 5.10.2 | <span class="badge low">LOW</span> | 1.9 | none, outdated | 6.1.1 |
+| 12+ | remaining transitive annotation/test libs (jsr305, checker-compat-qual, error_prone_annotations, j2objc-annotations, animal-sniffer-annotations, junit-platform-*/opentest4j/apiguardian) | — | <span class="badge low">LOW</span> | 1.3–1.9 | none | — |
+
+Full 23-dependency ranked list with component scores: `depscan-risk-report.json`.
 
 ## Component scores (top items)
 
 | Dependency | CVE severity | Exposure | Business criticality | Weighted |
 |---|---|---|---|---|
-| log4j-core | 10.0 | 8.0 | 2.0 | 7.8 |
 | jackson-databind | 10.0 | 8.0 | 2.0 | 7.8 |
-| guava | 6.9 | 7.0 | 2.0 | 6.0 |
-| mysql-connector-java | 0.0 | 7.0 | 5.0 | 3.1 |
+| log4j-core | 10.0 | 8.0 | 2.0 | 7.8 |
+| log4j-api | 10.0 | 8.0 | 2.0 | 7.8 |
+| protobuf-java | 9.0 | 6.0 | 2.0 | 6.7 |
+| guava | 6.0 | 7.0 | 2.0 | 5.5 |
+| commons-lang3 | 5.3 | 7.0 | 2.0 | 5.2 |
+| commons-io | 4.3 | 7.0 | 2.0 | 4.7 |
+| mysql-connector-java | 0.0 | 8.0 | 2.0 | 2.8 |
+
+Business criticality is 2.0 (`Internal service/batch`) across the board: `log4j-core`/`log4j-api` are
+confirmed used directly in `DiscountCalculator.java` for order-discount logic (no auth/payment/PII
+code path found); every other dependency is declared in `pom.xml` but not actually imported anywhere
+in `src/`, so criticality defaults to 2.0 per the scoring rules.
+
+## Summary
+
+| Band | Count |
+|---|---|
+| <span class="badge crit">CRITICAL</span> | 0 (weighted formula) — but see typosquat alert above |
+| <span class="badge high">HIGH</span> | 4 |
+| <span class="badge med">MEDIUM</span> | 3 |
+| <span class="badge low">LOW</span> | 16 |
 
 ## Priority recommendations
 
-1. **P0** — Remove the typosquatted `com.fastxml.jackson.core` dependency (supply-chain).
-2. **P0** — Upgrade log4j 2.14.1 → 2.17.1 (Log4Shell, actively exploited).
-3. **P1** — Upgrade jackson-databind 2.9.8 → 2.13.4.2 (8 CVEs, 2 critical RCE chains).
-4. **P1** — Upgrade guava → 32.0.0-jre (major review — API breakage possible).
-5. **P2** — Resolve mysql-connector GPL-2.0 license violation.
-6. **P3** — Routine bumps: commons-io, commons-lang3.
+1. **P0** — Remove the typosquatted `com.fastxml.jackson.core:jackson-databind` coordinate (supply-chain, dependency-confusion vector).
+2. **P0** — Upgrade `log4j-core`/`log4j-api` 2.14.1 → 2.25.4 (Log4Shell family + 3 newer 2026 CVEs; keep on the 2.x line, 3.0.0 is still beta).
+3. **P1** — Upgrade `jackson-databind` 2.9.8 → 2.21.5+ (latest available 2.22.0); 56 known CVEs, unused in code so safe to bump aggressively.
+4. **P1** — Pin `protobuf-java` (transitive via `mysql-connector-java`) to ≥3.25.5 via `dependencyManagement`, or drop the MySQL driver entirely (also clears the license issue below).
+5. **P2** — Replace `mysql-connector-java` (GPL-2.0) with MariaDB Connector/J (LGPL-2.1) or the approved internal driver.
+6. **P2** — Upgrade `guava` → 33.6.0-jre, `commons-lang3` → 3.20.0, `commons-io` → 2.22.0 (routine, low-criticality but each carries a real CVE).
+7. **P3** — Bump test-only `junit-jupiter` 5.10.2 → 6.1.1 when convenient.
 
 ---
 *Machine-readable source: `depscan-risk-report.json`. Generated by the Dependency & Supply-Chain Plugin — Stage 2.*
