@@ -53,19 +53,19 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>2.25.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <version>2.25.4</version>
         </dependency>
 
         <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, ...) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>2.18.8</version>
         </dependency>
 
         <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
@@ -82,12 +82,12 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.14.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.18.0</version>
         </dependency>
 
         <!-- ==========================================================
@@ -100,19 +100,6 @@
             <version>8.0.30</version>
         </dependency>
 
-        <!-- ==========================================================
-             ISSUE #4 — TYPOSQUATTED DEPENDENCY
-             groupId is "com.fastxml" (missing the "er") impersonating the
-             real "com.fasterxml.jackson.core". This coordinate does NOT
-             exist on Central and will fail to resolve — that is the point.
-             Comment it out before running the coverage build (Issue #6).
-             ========================================================== -->
-        <dependency>
-            <groupId>com.fastxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
-        </dependency>
-
         <!-- Test scope -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -121,6 +108,19 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!-- Force the transitive protobuf-java pulled in by mysql-connector-java to a
+         non-vulnerable version (CVE-2024-7254) without bumping mysql-connector-java
+         itself, which still needs a human license decision (Issue #3). -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.25.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
