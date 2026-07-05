@@ -1,0 +1,61 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "75b769b818b3975a76eddff100e82aef75d26d1d",
+  "pr_number": 61,
+  "verdict": "BLOCK",
+  "blocking_findings": [
+    {
+      "type": "license_violation",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "license": "GPL-2.0-with-FOSS-exception",
+      "status": "VIOLATION",
+      "detail": "Denied license under the permissive-only policy. Per depscan-supplychain-audit Step 6, a denied/unknown license is an unconditional BLOCK condition — there is no pre-existing carve-out. Pre-dates this PR (not introduced by it) and is tracked in issue #58, but still blocks merge until resolved or the policy is explicitly overridden by a human."
+    },
+    {
+      "type": "untrusted_source",
+      "repository_id": "internal-untrusted-mirror",
+      "url": "http://insecure-mirror.example.net/maven2",
+      "detail": "Plain-HTTP, non-allowlisted repository declared in pom.xml. Per depscan-supplychain-audit Step 6, an artifact source from an untrusted/HTTP repository is an unconditional BLOCK condition. Pre-dates this PR (not introduced by it) and is tracked in issue #21, but still blocks merge until removed/replaced."
+    }
+  ],
+  "warnings": [
+    {
+      "type": "grype_high_no_fix",
+      "coordinate": "mysql:mysql-connector-java:8.0.30",
+      "cve": "CVE-2023-22102 (GHSA-m6vm-37g8-gqvh)",
+      "cvss": 8.3,
+      "severity": "HIGH",
+      "fix_version": null,
+      "detail": "No fix version published by Grype DB; tracked in issue #58 alongside its GPL-2.0 license violation (which is the blocking finding above)."
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.17.1",
+      "cves": ["GHSA-3pxv-7cmr-fjr4", "GHSA-vc5p-v9hr-52mj", "GHSA-6hg6-v5c8-fphq"],
+      "severity": "MEDIUM",
+      "fix_version": "2.25.3/2.25.4",
+      "detail": "Non-blocking per policy (MEDIUM). Log4Shell (CVE-2021-44228) remains resolved."
+    },
+    {
+      "type": "grype_medium",
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.18.8",
+      "cves": ["GHSA-5jmj-h7xm-6q6v (CVE-2026-54515)"],
+      "severity": "MEDIUM",
+      "detail": "CVSS 5.3 MEDIUM per NVD. Non-blocking per policy. Confirmed the two previously-flagged HIGH CVEs (CVE-2026-54512, CVE-2026-54513) are resolved: NVD versionEndExcluding=2.18.8 for both."
+    }
+  ],
+  "typosquat_check": {
+    "result": "CLEAR",
+    "detail": "No typosquat matches in the SBOM."
+  },
+  "counts": {
+    "grype_critical": 0,
+    "grype_high": 1,
+    "grype_high_in_scope_with_fix": 0,
+    "grype_medium": 4,
+    "typosquat": 0,
+    "untrusted": 1,
+    "license_violations": 1
+  },
+  "notes": "Re-run for PR #61 corrected commit 75b769b. Grype DB same as prior run (built 2026-07-04, GRYPE_DB_AUTO_UPDATE=false). Fresh SBOM regenerated via syft against target/ build output. Live NVD REST API cross-checks confirm jackson-databind 2.18.8 clears CVE-2026-54512/54513 (versionEndExcluding=2.18.8) and commons-io 2.14.0 clears CVE-2024-47554 (versionEndExcluding=2.14.0, and a direct CPE lookup for 2.14.0 returns 0 results). CORRECTED from an earlier WARN: depscan-supplychain-audit Step 6's block policy table has no exception for pre-existing findings — untrusted-source and denied-license are unconditional BLOCK conditions, consistent with prior-run precedent (issue #57 blocked PR #56 on these same standing conditions). Verdict is BLOCK until issues #58 (license) and #21 (untrusted mirror) are resolved by a human or the policy is explicitly overridden."
+}
