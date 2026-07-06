@@ -31,6 +31,18 @@
         </repository>
     </repositories>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- Transitive via mysql-connector-java 8.0.30; pin to clear CVE-2022-3509,
+                 CVE-2022-3510, CVE-2024-7254 (parsing/DoS issues in protobuf-java). -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.25.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <!-- ==========================================================
