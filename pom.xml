@@ -24,22 +24,10 @@
         <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
-    <!-- ==========================================================
-         ISSUE #5 — UNTRUSTED SOURCE
-         A non-Maven-Central repository served over plain HTTP from an
-         unverified host. Supply-chain audit must flag this.
-         ========================================================== -->
     <repositories>
         <repository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-        <repository>
-            <id>internal-untrusted-mirror</id>
-            <name>Untrusted HTTP Mirror</name>
-            <url>http://insecure-mirror.example.net/maven2</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
         </repository>
     </repositories>
 
