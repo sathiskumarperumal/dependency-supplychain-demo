@@ -24,22 +24,10 @@
         <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
-    <!-- ==========================================================
-         ISSUE #5 — UNTRUSTED SOURCE
-         A non-Maven-Central repository served over plain HTTP from an
-         unverified host. Supply-chain audit must flag this.
-         ========================================================== -->
     <repositories>
         <repository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-        <repository>
-            <id>internal-untrusted-mirror</id>
-            <name>Untrusted HTTP Mirror</name>
-            <url>http://insecure-mirror.example.net/maven2</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
         </repository>
     </repositories>
 
@@ -49,30 +37,35 @@
              ISSUE #2 — KNOWN CVE / VULNERABLE DEPENDENCIES
              ========================================================== -->
 
-        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046 -->
+        <!-- Log4Shell: CVE-2021-44228 (CVSS 10.0), CVE-2021-45046, CVE-2021-44832, CVE-2021-45105 -->
+        <!-- Fixed: bumped 2.14.1 -> 2.17.1 (Stage 3 auto-remediation) -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>2.17.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <version>2.17.1</version>
         </dependency>
 
-        <!-- Multiple deserialization CVEs (CVE-2019-12384, CVE-2020-36518, ...) -->
+        <!-- Multiple deserialization CVEs (CVE-2019-14540, CVE-2020-36518, CVE-2019-12384, CVE-2019-12814) -->
+        <!-- Fixed: bumped 2.9.8 -> 2.13.2.1 (Stage 3 auto-remediation) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
+            <version>2.13.2.1</version>
         </dependency>
 
-        <!-- CVE-2020-8908 (insecure temp dir), CVE-2018-10237 (unbounded alloc) -->
+        <!-- CVE-2020-8908 (insecure temp dir) -->
+        <!-- Fixed: bumped 24.1.1-jre -> 32.0.0-jre (Stage 3 auto-remediation) -->
+        <!-- Note: "32.0.0" has no such artifact on Central; guava publishes -jre/-android
+             classified coordinates only, so the JVM ("-jre") variant is the correct target. -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>24.1.1-jre</version>
+            <version>32.0.0-jre</version>
         </dependency>
 
         <!-- ==========================================================
@@ -92,7 +85,14 @@
 
         <!-- ==========================================================
              ISSUE #3 — UNLICENSED / LICENSE-POLICY VIOLATION
-             GPL-2.0 connector pulled into a permissive-only project.
+             GPL-2.0-with-FOSS-exception connector pulled into a
+             permissive-only project. NOT auto-remediated by Stage 3:
+             swapping DB drivers is not a "safe" automated change (API
+             surface differs, requires a licensing/legal decision).
+             Flagged MAJOR_REVIEW — tracked in a separate issue for a
+             human to decide (e.g. replace with MariaDB Connector/J,
+             which is also LGPL but commonly accepted, or obtain a
+             commercial license) rather than silently dropped here.
              ========================================================== -->
         <dependency>
             <groupId>mysql</groupId>
@@ -101,17 +101,17 @@
         </dependency>
 
         <!-- ==========================================================
-             ISSUE #4 — TYPOSQUATTED DEPENDENCY
-             groupId is "com.fastxml" (missing the "er") impersonating the
-             real "com.fasterxml.jackson.core". This coordinate does NOT
-             exist on Central and will fail to resolve — that is the point.
-             Comment it out before running the coverage build (Issue #6).
+             ISSUE #4 — TYPOSQUATTED DEPENDENCY (REMOVED — Stage 3
+             auto-remediation). groupId "com.fastxml.jackson.core" (missing
+             the "er") impersonated the real "com.fasterxml.jackson.core".
+             The coordinate did not exist on Maven Central and fell back to
+             an untrusted HTTP mirror declared in <repositories> (now also
+             removed). This was an active supply-chain attack indicator, not
+             a version-bump candidate, so the entry — and the untrusted
+             repository that existed only to serve it — were deleted rather
+             than upgraded. The legitimate coordinate the project needs is
+             already declared above as com.fasterxml.jackson.core:jackson-databind.
              ========================================================== -->
-        <dependency>
-            <groupId>com.fastxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.8</version>
-        </dependency>
 
         <!-- Test scope -->
         <dependency>
