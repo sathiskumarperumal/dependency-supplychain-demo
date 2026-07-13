@@ -1,0 +1,34 @@
+{
+  "project": "vulnerable-invoice-service",
+  "source_sha": "addec2e",
+  "pr_number": 77,
+  "verdict": "BLOCK",
+  "blocking_findings": [
+    {
+      "type": "license_violation",
+      "coordinate": "com.mysql:mysql-connector-j:8.2.0",
+      "detail": "GNU General Public License, v2 with FOSS exception -- denied license for this Apache-2.0/MIT/BSD/EPL-only project. Unresolved by the CVE fix in this PR (every com.mysql:mysql-connector-j release carries this license). Tracked in issue #76 pending a human license-policy decision."
+    }
+  ],
+  "warnings": [
+    {
+      "type": "grype_medium",
+      "coordinate": "com.fasterxml.jackson.core:jackson-databind:2.18.8",
+      "detail": "GHSA-5jmj-h7xm-6q6v (Medium) -- no fix version currently available upstream."
+    },
+    {
+      "type": "untrusted_repository_declared",
+      "coordinate": "n/a (repository declaration)",
+      "detail": "http://insecure-mirror.example.net/maven2 remains declared in <repositories> in pom.xml. No dependency currently resolves through it (confirmed via dependency:tree against Maven Central only), but it remains a standing supply-chain risk. Not removed by this PR -- flagged in CVE-Report.md for follow-up."
+    }
+  ],
+  "counts": {
+    "grype_critical": 0,
+    "grype_high": 0,
+    "grype_medium": 1,
+    "typosquat": 0,
+    "untrusted_resolved": 0,
+    "license_violations": 1
+  },
+  "notes": "Typosquatted com.fastxml.jackson.core:jackson-databind was removed by this PR's remediation commits. All Grype CRITICAL/HIGH findings (including 2 High findings on jackson-databind 2.16.0 missed by OWASP's cached NVD data) were cleared by the follow-up bump to 2.18.8. The sole remaining blocking condition is the pre-existing mysql-connector-j GPL-2.0 license violation, which is orthogonal to the CVE fix and requires a human policy decision (issue #76)."
+}
