@@ -99,10 +99,16 @@
              ISSUE #3 — UNLICENSED / LICENSE-POLICY VIOLATION
              GPL-2.0 connector pulled into a permissive-only project.
              ========================================================== -->
+        <!-- CVE-2023-22102 (CVSS 8.3, affects mysql:mysql-connector-java through 8.1.0 inclusive).
+             The old "mysql:mysql-connector-java" coordinate tops out at 8.0.33 (still vulnerable);
+             Oracle relocated the artifact to "com.mysql:mysql-connector-j" starting at 8.1.0, so the
+             minimal safe fix requires switching coordinates to com.mysql:mysql-connector-j:8.2.0.
+             License remains GPL-2.0 w/ FOSS exception (unchanged by this bump); tracked separately
+             as a license-policy follow-up. -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
         </dependency>
 
         <!-- ==========================================================
