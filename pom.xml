@@ -43,6 +43,18 @@
         </repository>
     </repositories>
 
+    <!-- Transitive CVE pin: mysql-connector-j pulls protobuf-java 3.21.9 (CVE-2024-7254 and others);
+         force the safe fixed version identified in the Stage 2 risk report. -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>3.25.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <!-- ==========================================================
